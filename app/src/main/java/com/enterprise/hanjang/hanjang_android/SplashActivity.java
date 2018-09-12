@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.enterprise.hanjang.hanjang_android.view.login.LoginActivity;
+
 /**
  * Created by shineeseo on 2018. 9. 12..
  */
