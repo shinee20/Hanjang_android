@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.enterprise.hanjang.hanjang_android.MainActivity;
 import com.enterprise.hanjang.hanjang_android.R;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
+import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 
 /**
  * Created by shineeseo on 2018. 9. 12..
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         go_without_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, RecordActivity.class);
                     startActivity(intent);
             }
         });

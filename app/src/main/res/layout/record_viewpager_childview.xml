@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#282c4f"/>
+    <TextView
+        android:id="@+id/record_title"
+        android:layout_marginTop="66.3dp"
+        android:layout_marginLeft="14.8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="23.8sp"
+        android:textColor="#ffffff"
+        android:text="온새미로"
+        />
+    <TextView
+        android:layout_below="@id/record_title"
+        android:id="@+id/record_mean"
+        android:layout_marginTop="9.3dp"
+        android:layout_marginLeft="14.8dp"
+        android:layout_width="210.3dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="4.5sp"
+        android:text="자연그대로 언제나 변함없이 가르거나 쪼개지 않고."
+        />
+    <View
+        android:id="@+id/record_line"
+        android:layout_below="@id/record_mean"
+        android:layout_marginLeft="14.8dp"
+        android:layout_marginTop="43.3dp"
+        android:layout_width="7.5dp"
+        android:layout_height="0.5dp"
+        android:background="#ffffff"/>
+
+    <TextView
+        android:layout_marginLeft="14.8dp"
+        android:layout_marginTop="42.8dp"
+        android:layout_below="@id/record_line"
+        android:id="@+id/record_diary"
+        android:layout_width="210.3dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="8.5sp"
+        android:text="오늘의 일기,
+정동 길 회화나무는 몇 년을 지나도 온새미로 고고하다. 너도 여전히 온새미로 보기 좋구나."
+        />
+    <TextView
+        android:layout_below="@id/record_diary"
+        android:id="@+id/record_date"
+        android:layout_marginLeft="14.8dp"
+        android:layout_marginTop="9.5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="#d8d8d8"
+        android:text="2018. 06. 25"
+        />
+</RelativeLayout>

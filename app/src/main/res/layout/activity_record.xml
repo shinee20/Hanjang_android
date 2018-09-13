@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/record_viewPager">
+        </android.support.v4.view.ViewPager>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/actionBtn1"
+            android:layout_marginBottom="13.5dp"
+            android:layout_marginLeft="270dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            app:backgroundTint="#28767676"
+            android:src="@drawable/group_5" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/actionBtn2"
+            android:layout_marginBottom="13.5dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/actionBtn1"
+            app:backgroundTint="#28767676"
+            android:src="@drawable/group_5" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="201.8dp"
+            android:layout_height="389.3dp"
+            android:background="#282c4f"
+            />
+        <TextView
+            android:layout_marginLeft="19.3dp"
+            android:layout_marginTop="24.5dp"
+            android:id="@+id/voca_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="온
+새
+미
+로"
+            android:textSize="23.8sp"
+            android:textColor="#ffffff"
+            />
+        <TextView
+            android:id="@+id/voca_mean_first"
+            android:layout_marginTop="24.5dp"
+            android:layout_marginLeft="18.5dp"
+            android:layout_toRightOf="@id/voca_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="2.8sp"
+            android:text="언
+제
+나
+변
+함
+없
+이
+자
+연
+그
+대
+로"
+            />
+        <TextView
+            android:id="@+id/voca_mean_second"
+            android:layout_marginTop="24.5dp"
+            android:layout_marginLeft="7.5dp"
+            android:layout_toRightOf="@id/voca_mean_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="2.8sp"
+            android:text="가
+르
+거
+나
+쪼
+개
+지
+않
+고."
+            />
+        <TextView
+            android:id="@+id/voca_order"
+            android:layout_toRightOf="@id/voca_mean_second"
+            android:layout_marginLeft="55.5dp"
+            android:layout_marginTop="24.8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#d8d8d8"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="2.5sp"
+            android:gravity="center_horizontal"
+            android:text="01"
+            />
+        <TextView
+            android:id="@+id/voca_date"
+            android:layout_below="@id/voca_order"
+            android:layout_marginLeft="115.3dp"
+            android:layout_marginTop="315dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8.5sp"
+            android:textColor="#d8d8d8"
+            android:text="2018. 06. 25"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

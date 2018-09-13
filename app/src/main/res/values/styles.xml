@@ -21,4 +21,9 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="record" parent="AppTheme">
+        <item name="android:statusBarColor">@color/recordcolor</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
