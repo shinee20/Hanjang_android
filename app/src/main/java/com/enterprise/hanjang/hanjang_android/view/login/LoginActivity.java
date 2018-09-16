@@ -12,6 +12,8 @@ import com.enterprise.hanjang.hanjang_android.MainActivity;
 import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
 import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
+import com.facebook.CallbackManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Created by shineeseo on 2018. 9. 12..
@@ -19,9 +21,18 @@ import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    ImageView facebook_login_btn;
-    ImageView google_login_btn;
-    TextView go_without_login;
+    private static final String TAG = "LoginActivity";
+
+    private ImageView facebook_login_btn;
+    private ImageView google_login_btn;
+    private TextView go_without_login;
+
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
+
+    private CallbackManager mCallbackManager;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
