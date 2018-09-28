@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1019354192960",
+    "firebase_url": "https://hanjang-2481e.firebaseio.com",
+    "project_id": "hanjang-2481e",
+    "storage_bucket": "hanjang-2481e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019354192960:android:0fbc890f8be5ea92",
+        "android_client_info": {
+          "package_name": "com.enterprise.hanjang.hanjang_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019354192960-aqpg727mlilk8r5ga9d66b39eeg6sk93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWugC8sZhLSVMK7Ous4EDdTelnQ8BdwgY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019354192960:android:d81acf00cfb65976",
+        "android_client_info": {
+          "package_name": "com.hanjang.hanjang.hanjang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019354192960-aqpg727mlilk8r5ga9d66b39eeg6sk93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWugC8sZhLSVMK7Ous4EDdTelnQ8BdwgY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
