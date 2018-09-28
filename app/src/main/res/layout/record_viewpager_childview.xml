@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <View
+        android:id="@+id/record_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#282c4f"/>
@@ -28,6 +29,7 @@
         android:textSize="12sp"
         android:textColor="#ffffff"
         android:lineSpacingExtra="4.5sp"
+        android:fontFamily="@font/nanummyeongjo"
         android:text="자연그대로 언제나 변함없이 가르거나 쪼개지 않고."
         />
     <View
@@ -49,6 +51,7 @@
         android:textSize="16sp"
         android:textColor="#ffffff"
         android:lineSpacingExtra="8.5sp"
+        android:fontFamily="@font/nanummyeongjo"
         android:text="오늘의 일기,
 정동 길 회화나무는 몇 년을 지나도 온새미로 고고하다. 너도 여전히 온새미로 보기 좋구나."
         />

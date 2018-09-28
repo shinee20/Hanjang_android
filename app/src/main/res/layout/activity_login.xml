@@ -11,39 +11,41 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="25.8dp"
         android:orientation="vertical">
+
         <ImageView
-            android:layout_marginTop="44.3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"/>
+            android:layout_width="37.8dp"
+            android:layout_height="79.3dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/logo" />
 
         <ImageView
             android:id="@+id/facebook_login_btn"
+            android:layout_width="218.5dp"
+            android:layout_height="36.3dp"
             android:layout_gravity="center"
-            android:layout_marginTop="208.3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/facebook_login_btn"/>
+            android:layout_marginTop="300dp"
+            android:src="@drawable/facebook_login_btn" />
 
         <ImageView
             android:id="@+id/google_login_btn"
+            android:layout_width="218.5dp"
+            android:layout_height="36.3dp"
             android:layout_gravity="center"
             android:layout_marginTop="9.8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/google_login_btn"/>
+            android:src="@drawable/google_login_btn" />
 
         <TextView
-            android:textStyle="bold"
             android:id="@+id/go_without_login"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="로그인 없이 사용하기"
+            android:layout_gravity="center"
             android:layout_marginTop="29.3dp"
+            android:letterSpacing="0.023"
+            android:text="로그인 없이 사용하기"
             android:textColor="#c4c4c4"
             android:textSize="10.5sp"
-            android:letterSpacing="0.23"
+            android:textStyle="bold"
+
             />
     </LinearLayout>
 </LinearLayout>

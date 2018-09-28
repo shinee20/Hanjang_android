@@ -1,19 +1,25 @@
 package com.enterprise.hanjang.hanjang_android.view.voca.adapter;
 
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.enterprise.hanjang.hanjang_android.R;
+
+import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
+
 
 /**
  * Created by shineeseo on 2018. 9. 13..
  */
 
 public class VocaPagerAdapter extends PagerAdapter {
-    LayoutInflater inflater;
-
+    private LayoutInflater inflater;
+    private View voca_rectangle;
+    private TextView voca_order;
 
     public VocaPagerAdapter(LayoutInflater inflater) {
 
@@ -36,7 +42,7 @@ public class VocaPagerAdapter extends PagerAdapter {
 
         // TODO Auto-generated method stub
 
-        return 10; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
+        return 7; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
 
     }
 
@@ -66,6 +72,18 @@ public class VocaPagerAdapter extends PagerAdapter {
         //만들어질 View의 설계는 res폴더>>layout폴더>>viewpater_childview.xml 레이아웃 파일 사용
 
         view= inflater.inflate(R.layout.voca_viewpager_childview, null);
+
+        voca_rectangle = (View) view.findViewById(R.id.voca_rectangle);
+
+        voca_rectangle.setBackgroundColor(VOCA_RECTANGLE_COLOR[position]);
+        Log.v("voca color", VOCA_RECTANGLE_COLOR[position] + "");
+
+        voca_order = (TextView) view.findViewById(R.id.voca_order);
+
+        String s = String.format("%02d", position + 1);
+
+        voca_order.setText(s);
+
 
 
         //ViewPager에 만들어 낸 View 추가

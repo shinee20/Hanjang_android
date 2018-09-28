@@ -6,10 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/CustomTextView</item>
     </style>
     <style name="Splash" parent="AppTheme">
         <item name="android:statusBarColor">@color/maincolor</item>
         <item name="windowNoTitle">true</item>
+
     </style>
     <style name="Main" parent="AppTheme">
         <item name="android:statusBarColor">@color/maincolor</item>
@@ -20,10 +22,16 @@
         <item name="android:statusBarColor">@color/maincolor</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="windowNoTitle">true</item>
+
     </style>
     <style name="record" parent="AppTheme">
         <item name="android:statusBarColor">@color/recordcolor</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="windowNoTitle">true</item>
+
     </style>
+    <style name="CustomTextView" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/nanummyeongjoextrabold</item>
+    </style>
+
 </resources>

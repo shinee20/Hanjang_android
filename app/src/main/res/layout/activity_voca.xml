@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="83dp"
+            android:layout_marginLeft="150dp"
             android:layout_marginTop="26.3dp"
             android:text="단어장"
             android:textSize="12.5sp"
@@ -46,10 +47,28 @@
             />
 
         <TextView
+            android:id="@+id/cur_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="126dp"
-            tools:text="01 / 13장"
+            android:layout_marginLeft="230dp"
+            android:text="01"
+            android:textColor="#c4c4c4"
+            android:letterSpacing="-0.01"
+            android:textSize="10.5sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / "
+            android:textColor="#c4c4c4"
+            android:letterSpacing="-0.01"
+            android:textSize="10.5sp"
+            />
+        <TextView
+            android:id="@+id/total_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13장"
             android:textColor="#c4c4c4"
             android:letterSpacing="-0.01"
             android:textSize="10.5sp"
@@ -64,22 +83,27 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="36.5dp"
         android:max="13"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:layout_marginLeft="35.5dp"
+            android:layout_marginTop="9.8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="560dp"
+            android:id="@+id/voca_viewPager"
+            >
 
-    <android.support.v4.view.ViewPager
-        android:layout_marginLeft="35.5dp"
-        android:layout_marginTop="9.8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="389.3dp"
-        android:id="@+id/voca_viewPager"
-        >
-
-    </android.support.v4.view.ViewPager>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="15sp"
-        app:backgroundTint="#28767676"
-        android:src="@drawable/group_5" />
+        </android.support.v4.view.ViewPager>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:layout_margin="15dp"
+            app:backgroundTint="#ccffffff"
+            android:src="@drawable/group_5" />
+    </RelativeLayout>
 </LinearLayout>

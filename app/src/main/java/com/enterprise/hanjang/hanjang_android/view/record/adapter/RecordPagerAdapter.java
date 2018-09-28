@@ -7,13 +7,15 @@ import android.view.ViewGroup;
 
 import com.enterprise.hanjang.hanjang_android.R;
 
+import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
+
 /**
  * Created by shineeseo on 2018. 9. 13..
  */
 
 public class RecordPagerAdapter extends PagerAdapter {
-    LayoutInflater inflater;
-
+    private LayoutInflater inflater;
+    private View record_view;
 
     public RecordPagerAdapter(LayoutInflater inflater) {
 
@@ -36,7 +38,7 @@ public class RecordPagerAdapter extends PagerAdapter {
 
         // TODO Auto-generated method stub
 
-        return 10; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
+        return 7; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
 
     }
 
@@ -66,7 +68,9 @@ public class RecordPagerAdapter extends PagerAdapter {
         //만들어질 View의 설계는 res폴더>>layout폴더>>viewpater_childview.xml 레이아웃 파일 사용
 
         view= inflater.inflate(R.layout.record_viewpager_childview, null);
+        record_view = (View) view.findViewById(R.id.record_view);
 
+        record_view.setBackgroundColor(VOCA_RECTANGLE_COLOR[position]);
 
         //ViewPager에 만들어 낸 View 추가
 

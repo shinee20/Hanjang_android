@@ -5,5 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="maincolor">#efefef</color>
     <color name="recordcolor">#282c4f</color>
-
+    <color name="recordcolor2">#e8d8bf</color>
+    <color name="recordcolor3">#bea36b</color>
+    <color name="recordcolor4">#f8755a</color>
+    <color name="recordcolor5">#f19c90</color>
+    <color name="recordcolor6">#52bdbb</color>
+    <color name="recordcolor7">#dedede</color>
+    <color name="backgroundcolor">#f2f2f2</color>
 </resources>

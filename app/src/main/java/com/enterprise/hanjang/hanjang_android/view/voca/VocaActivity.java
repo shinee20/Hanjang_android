@@ -1,7 +1,9 @@
 package com.enterprise.hanjang.hanjang_android.view.voca;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,9 +16,11 @@ import com.enterprise.hanjang.hanjang_android.view.voca.adapter.VocaPagerAdapter
  */
 
 public class VocaActivity extends AppCompatActivity {
-    ViewPager pager;
-    ImageView menu_btn;
-
+    private ViewPager pager;
+    private ImageView menu_btn;
+    private NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    public final static int[] VOCA_RECTANGLE_COLOR = {R.color.recordcolor,R.color.recordcolor2,R.color.recordcolor3,R.color.recordcolor4,R.color.recordcolor5,R.color.recordcolor6,R.color.recordcolor7};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,14 +45,13 @@ public class VocaActivity extends AppCompatActivity {
 
         VocaPagerAdapter adapter= new VocaPagerAdapter(getLayoutInflater());
 
-
-
         //ViewPager에 Adapter 설정
 
         pager.setAdapter(adapter);
         pager.setClipToPadding(false);
         pager.setPadding(40, 0, 40, 0);
-        pager.setPageMargin(getResources().getDisplayMetrics().widthPixels / -9);
+//        pager.setPageMargin(getResources().getDisplayMetrics().widthPixels / -9);
+        pager.setPageMargin(20);
 
 
 

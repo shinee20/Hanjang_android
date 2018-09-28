@@ -46,8 +46,8 @@ public class RecordActivity extends AppCompatActivity {
 
         pager.setAdapter(adapter);
         pager.setClipToPadding(false);
-        pager.setPadding(0, 0, 0, 0);
-        pager.setPageMargin(getResources().getDisplayMetrics().widthPixels / -9);
+        pager.setPadding(0, 0, 40, 0);
+        pager.setPageMargin(20);
 
 
 

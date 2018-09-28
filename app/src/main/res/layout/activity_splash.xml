@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#efefef"
     android:orientation="vertical">
 
@@ -9,26 +10,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25.8dp"
-        android:layout_marginTop="44.3dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/logo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="315.3dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19.3dp"
-            android:text="엔터프라이즈 응용 프로젝트" />
+            android:text="엔터프라이즈 응용 프로젝트"
+            android:textStyle="bold"
+            android:textColor="#4a4a4a"
+            android:letterSpacing="0.021"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="137.8dp"
-            android:text="01" />
+            android:textSize="12sp"
+            android:textColor="#4a4a4a"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="2.5sp"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="200dp"
+            tools:text="01"
+            />
 
     </LinearLayout>
 </LinearLayout>

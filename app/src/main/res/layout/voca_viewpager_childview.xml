@@ -8,20 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <View
-            android:layout_width="201.8dp"
-            android:layout_height="389.3dp"
+            android:layout_width="400dp"
+            android:layout_height="560dp"
             android:background="#282c4f"
+            android:id="@+id/voca_rectangle"
             />
         <TextView
             android:layout_marginLeft="19.3dp"
             android:layout_marginTop="24.5dp"
             android:id="@+id/voca_title"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:text="온
-새
-미
-로"
+            android:text="온새미로"
             android:textSize="23.8sp"
             android:textColor="#ffffff"
             />
@@ -30,10 +28,11 @@
             android:layout_marginTop="24.5dp"
             android:layout_marginLeft="18.5dp"
             android:layout_toRightOf="@id/voca_title"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:textSize="13sp"
             android:textColor="#ffffff"
+            android:fontFamily="@font/nanummyeongjo"
             android:lineSpacingExtra="2.8sp"
             android:text="언
 제
@@ -53,10 +52,11 @@
             android:layout_marginTop="24.5dp"
             android:layout_marginLeft="7.5dp"
             android:layout_toRightOf="@id/voca_mean_first"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:textSize="13sp"
             android:textColor="#ffffff"
+            android:fontFamily="@font/nanummyeongjo"
             android:lineSpacingExtra="2.8sp"
             android:text="가
 르
