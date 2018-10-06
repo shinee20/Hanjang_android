@@ -18,10 +18,10 @@
             android:id="@+id/actionBtn1"
             android:clickable="true"
             android:layout_marginBottom="13.5dp"
-            android:layout_marginLeft="270dp"
+            android:layout_marginRight="12.3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="false"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             app:backgroundTint="#ccffffff"
             android:src="@drawable/group_5" />

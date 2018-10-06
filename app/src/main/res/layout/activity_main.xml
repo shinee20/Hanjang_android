@@ -105,6 +105,7 @@
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="13.5dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_margin="15dp"
@@ -117,3 +118,4 @@
     <include layout="@layout/activity_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
+
