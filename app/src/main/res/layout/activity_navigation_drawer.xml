@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.NavigationView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_view"
+    android:backgroundTint="#ffffff"
+    android:layout_marginLeft="14.5dp"
+    app:headerLayout="@layout/drawer_header"
+    app:menu="@menu/drawer"
+    android:layout_gravity="start"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+</android.support.design.widget.NavigationView>

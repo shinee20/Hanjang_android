@@ -1,11 +1,16 @@
 package com.enterprise.hanjang.hanjang_android.view.record.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.enterprise.hanjang.hanjang_android.R;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordAnotherViewActivity;
 
 import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
 
@@ -16,11 +21,14 @@ import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA
 public class RecordPagerAdapter extends PagerAdapter {
     private LayoutInflater inflater;
     private View record_view;
+    private ImageView change_view_layout_btn;
+    private ImageView back_btn;
+    private Context mContext;
 
-    public RecordPagerAdapter(LayoutInflater inflater) {
+    public RecordPagerAdapter(Context mContext, LayoutInflater inflater) {
 
         // TODO Auto-generated constructor stub
-
+        this.mContext = mContext;
         //전달 받은 LayoutInflater를 멤버변수로 전달
 
         this.inflater=inflater;
@@ -76,6 +84,16 @@ public class RecordPagerAdapter extends PagerAdapter {
 
         container.addView(view);
 
+        change_view_layout_btn = (ImageView) view.findViewById(R.id.change_view_layout_btn);
+        back_btn = (ImageView)view.findViewById(R.id.back_btn);
+
+        change_view_layout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, RecordAnotherViewActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
 
 
         //Image가 세팅된 View를 리턴

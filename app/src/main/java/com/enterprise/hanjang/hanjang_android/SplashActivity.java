@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.enterprise.hanjang.hanjang_android.view.login.LoginActivity;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordAnotherViewActivity;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordWriteNewActivity;
 
 /**
  * Created by shineeseo on 2018. 9. 12..
@@ -19,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Handler handler = new Handler();
-        final Intent intent = new Intent(this,LoginActivity.class);
+        final Intent intent = new Intent(this,MainActivity.class);
 
         handler.postDelayed(new Runnable(){
             @Override

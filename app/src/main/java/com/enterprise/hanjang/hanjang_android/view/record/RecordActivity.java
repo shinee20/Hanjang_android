@@ -1,8 +1,12 @@
 package com.enterprise.hanjang.hanjang_android.view.record;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.view.record.adapter.RecordPagerAdapter;
@@ -38,7 +42,7 @@ public class RecordActivity extends AppCompatActivity {
 
         //CustomAdapter에게 LayoutInflater 객체 전달
 
-        RecordPagerAdapter adapter= new RecordPagerAdapter(getLayoutInflater());
+        RecordPagerAdapter adapter= new RecordPagerAdapter(this,getLayoutInflater());
 
 
 
@@ -46,8 +50,8 @@ public class RecordActivity extends AppCompatActivity {
 
         pager.setAdapter(adapter);
         pager.setClipToPadding(false);
-        pager.setPadding(0, 0, 40, 0);
-        pager.setPageMargin(20);
+        pager.setPadding(0, 0, 0, 0);
+        pager.setPageMargin(0);
 
 
 

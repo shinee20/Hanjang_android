@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/drawer_close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_2"
+        android:layout_marginTop="27.5dp"
+        android:layout_marginLeft="8.6dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_img"
+        android:id="@+id/nav_profile_img"
+        android:layout_marginTop="18.5dp"
+        android:layout_marginLeft="14.5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="choseph831"
+        android:id="@+id/nav_user_id"
+        android:layout_marginTop="4.3dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="14.5dp"
+        android:fontFamily="@font/nanummyeongjobold"
+        />
+    <TextView
+        android:layout_width="98.8dp"
+        android:layout_height="wrap_content"
+        android:text="바른만 고운말 바른만 고운말 세종대왕만만세"
+        android:layout_marginLeft="14.5dp"
+        android:textSize="8.8sp"
+        android:layout_marginTop="2.8dp"
+        android:fontFamily="@font/nanummyeongjobold"
+        />
+    <View
+        android:layout_width="8.8dp"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="32.6dp"
+        android:layout_marginLeft="14.5dp"
+        android:background="#2f2f2f"
+        android:layout_marginBottom="32.9dp"
+        />
+</LinearLayout>
