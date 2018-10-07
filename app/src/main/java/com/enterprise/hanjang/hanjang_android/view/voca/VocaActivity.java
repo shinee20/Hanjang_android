@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.MainActivity;
@@ -31,7 +32,8 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
     private Intent intent;
     private NavigationView navigationView;
     private ImageView drawer_close_btn;
-    public final static int[] VOCA_RECTANGLE_COLOR = {R.color.recordcolor,R.color.recordcolor2,R.color.recordcolor3,R.color.recordcolor4,R.color.recordcolor5,R.color.recordcolor6,R.color.recordcolor7};
+    public final static int[] VOCA_RECTANGLE_COLOR = {R.color.recordcolor, R.color.recordcolor2, R.color.recordcolor3, R.color.recordcolor4, R.color.recordcolor5, R.color.recordcolor6, R.color.recordcolor7};
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(VocaActivity.this);
         navigationView.getMenu().getItem(1).setChecked(true);
 
-        drawer_close_btn = (ImageView)nav_header_view.findViewById(R.id.drawer_close_btn);
+        drawer_close_btn = (ImageView) nav_header_view.findViewById(R.id.drawer_close_btn);
 
         drawer_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +73,10 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        pager= (ViewPager)findViewById(R.id.voca_viewPager);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(6);
+
+        pager = (ViewPager) findViewById(R.id.voca_viewPager);
 
         //ViewPager에 설정할 Adapter 객체 생성
 
@@ -83,7 +88,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
         //CustomAdapter에게 LayoutInflater 객체 전달
 
-        VocaPagerAdapter adapter= new VocaPagerAdapter(getLayoutInflater());
+        VocaPagerAdapter adapter = new VocaPagerAdapter(progressBar.getMax(), getLayoutInflater());
 
         //ViewPager에 Adapter 설정
 
@@ -93,6 +98,22 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 //        pager.setPageMargin(getResources().getDisplayMetrics().widthPixels / -9);
         pager.setPageMargin(20);
 
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                progressBar.setProgress(position+1);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
 
     }

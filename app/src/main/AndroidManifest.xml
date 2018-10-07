@@ -32,7 +32,8 @@
         <activity android:name=".view.record.RecordAnotherViewActivity"
             android:theme="@style/Login" />
         <activity android:name=".view.record.RecordWriteNewActivity"
-            android:theme="@style/Login" />
+            android:theme="@style/Login"
+           />
         <activity android:name=".view.setting.SettingActivity"
             android:theme="@style/Login" />
         <meta-data android:name="com.facebook.sdk.ApplicationId"

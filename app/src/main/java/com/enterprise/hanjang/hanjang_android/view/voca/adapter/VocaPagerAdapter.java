@@ -20,11 +20,12 @@ public class VocaPagerAdapter extends PagerAdapter {
     private LayoutInflater inflater;
     private View voca_rectangle;
     private TextView voca_order;
+    private int page_cnt;
 
-    public VocaPagerAdapter(LayoutInflater inflater) {
+    public VocaPagerAdapter(int page_cnt, LayoutInflater inflater) {
 
         // TODO Auto-generated constructor stub
-
+        this.page_cnt = page_cnt;
         //전달 받은 LayoutInflater를 멤버변수로 전달
 
         this.inflater=inflater;
@@ -42,7 +43,7 @@ public class VocaPagerAdapter extends PagerAdapter {
 
         // TODO Auto-generated method stub
 
-        return 7; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
+        return page_cnt; //이미지 개수 리턴(그림이 10개라서 10을 리턴)
 
     }
 
