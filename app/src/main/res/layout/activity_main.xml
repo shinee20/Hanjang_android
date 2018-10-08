@@ -16,7 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
             <ImageView
                 android:id="@+id/menu_btn"
@@ -24,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14.3dp"
                 android:layout_marginTop="31dp"
-                android:src="@drawable/nav_btn" />
+                android:src="@drawable/nav_btn"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +35,17 @@
                 android:layout_marginTop="26.3dp"
                 android:text="단어장"
                 android:textColor="#2f2f2f"
-                android:textSize="12.5sp" />
+                android:textSize="12.5sp"
+                />
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:id="@+id/voca_regist_btn"
+                android:background="@drawable/star"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="150dp"
+                />
         </LinearLayout>
 
         <LinearLayout

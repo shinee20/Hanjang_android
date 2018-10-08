@@ -2,17 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp">
+    android:layout_height="wrap_content"
+    android:id="@+id/record_another_linear_layout">
     <View
+        android:id="@+id/record_another_view"
         android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_height="360dp"
         android:background="@color/recordcolor"
         />
     <TextView
         android:id="@+id/record_another_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textColor="#ffffff"
         tools:text="그느르다"
         android:layout_marginTop="67.3dp"
@@ -21,7 +23,7 @@
     <TextView
         android:layout_width="105.3dp"
         android:layout_height="wrap_content"
-        android:textSize="8sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
         android:lineSpacingExtra="7sp"
         tools:text="오늘의 일기, 정동 길 회화나무는 몇 년을 지나도 온새미로 고고하다. 너도 여전히 온새미로 보기 좋구나나도 여전히 온새미로 보기 좋다네."

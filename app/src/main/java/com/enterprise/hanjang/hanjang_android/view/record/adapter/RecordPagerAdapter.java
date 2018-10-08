@@ -78,7 +78,7 @@ public class RecordPagerAdapter extends PagerAdapter {
         view= inflater.inflate(R.layout.record_viewpager_childview, null);
         record_view = (View) view.findViewById(R.id.record_view);
 
-        record_view.setBackgroundColor(VOCA_RECTANGLE_COLOR[position]);
+        record_view.setBackgroundResource(VOCA_RECTANGLE_COLOR[position]);
 
         //ViewPager에 만들어 낸 View 추가
 

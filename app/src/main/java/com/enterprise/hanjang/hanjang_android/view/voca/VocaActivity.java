@@ -3,6 +3,7 @@ package com.enterprise.hanjang.hanjang_android.view.voca;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.enterprise.hanjang.hanjang_android.MainActivity;
 import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
+import com.enterprise.hanjang.hanjang_android.view.record.RecordWriteNewActivity;
 import com.enterprise.hanjang.hanjang_android.view.setting.SettingActivity;
 import com.enterprise.hanjang.hanjang_android.view.voca.adapter.VocaPagerAdapter;
 
@@ -34,6 +36,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
     private ImageView drawer_close_btn;
     public final static int[] VOCA_RECTANGLE_COLOR = {R.color.recordcolor, R.color.recordcolor2, R.color.recordcolor3, R.color.recordcolor4, R.color.recordcolor5, R.color.recordcolor6, R.color.recordcolor7};
     private ProgressBar progressBar;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +104,6 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
         pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -114,7 +116,15 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VocaActivity.this, RecordWriteNewActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

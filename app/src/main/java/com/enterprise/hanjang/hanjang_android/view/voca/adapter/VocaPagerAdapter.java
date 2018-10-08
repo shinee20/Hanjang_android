@@ -1,5 +1,6 @@
 package com.enterprise.hanjang.hanjang_android.view.voca.adapter;
 
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,8 +77,8 @@ public class VocaPagerAdapter extends PagerAdapter {
 
         voca_rectangle = (View) view.findViewById(R.id.voca_rectangle);
 
-        voca_rectangle.setBackgroundColor(VOCA_RECTANGLE_COLOR[position]);
-        Log.v("voca color", VOCA_RECTANGLE_COLOR[position] + "");
+        voca_rectangle.setBackgroundResource(VOCA_RECTANGLE_COLOR[position]);
+        Log.v("rectangle position", position+"");
 
         voca_order = (TextView) view.findViewById(R.id.voca_order);
 

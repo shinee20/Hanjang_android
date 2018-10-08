@@ -1,6 +1,7 @@
 package com.enterprise.hanjang.hanjang_android;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private ImageView drawer_close_btn;
     private FloatingActionButton fab;
+    private ImageView voca_regist_btn;
+    private int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         View nav_header_view = navigationView.getHeaderView(0);
 
+        //navigation drawer menu 버튼
         menu_btn = (ImageView) findViewById(R.id.menu_btn);
 
         menu_btn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +67,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        voca_regist_btn = (ImageView) findViewById(R.id.voca_regist_btn);
+
+        //즐겨찾기 버튼
+        voca_regist_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flag == 0) {
+                    voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
+                    flag = 1;
+                }
+                else {
+                    voca_regist_btn.setBackgroundResource(R.drawable.star);
+                    flag = 0;
+                }
+            }
+        });
+
+        //글쓰기 floatingaction button
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
