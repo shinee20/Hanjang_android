@@ -302,15 +302,16 @@ public class RecordWriteNewActivity extends AppCompatActivity {
         backgroundcolor_adj_white.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linear_write_record.setBackgroundColor(Color.parseColor("#ffffff"));
-
+//                linear_write_record.setBackgroundColor(Color.parseColor("#ffffff"));
+                record_txt.setTextColor(Color.parseColor("#ffffff"));
             }
         });
 
         backgroundcolor_adj_black.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linear_write_record.setBackgroundColor(Color.parseColor("#000000"));
+//                linear_write_record.setBackgroundColor(Color.parseColor("#000000"));
+                record_txt.setTextColor(Color.parseColor("#000000"));
             }
         });
 
