@@ -47,10 +47,7 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         final RecordItem recordItem = recordItemArrayList.get(i);
         final int pos = i;
-//        int height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, viewHolder.record_another_mean.getMeasuredHeight(), viewHolder.record_another_mean.getResources().getDisplayMetrics());
-//        ViewGroup.LayoutParams lp = (ViewGroup.LayoutParams) viewHolder.record_another_view.getLayoutParams();
-//        lp.height = height;
-//        viewHolder.record_another_view.setLayoutParams(lp);
+
 
         viewHolder.record_another_view.setBackgroundResource(VOCA_RECTANGLE_COLOR[pos]);
         viewHolder.record_another_date.setText(recordItem.getRecord_date());
@@ -60,15 +57,6 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
 
         viewHolder.record_another_mean.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)viewHolder.record_another_view.getLayoutParams();
-        layoutParams.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, viewHolder.record_another_mean.getMeasuredHeight()+200 , viewHolder.record_another_view.getResources().getDisplayMetrics());
-        int textview_height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, viewHolder.record_another_mean.getMeasuredHeight(), viewHolder.record_another_mean.getResources().getDisplayMetrics());
-        int height = viewHolder.record_another_mean.getLayout().getHeight();
-        Log.v("height", height + "");
-        Log.v("textview height",textview_height + "" );
-        Log.v("view height",layoutParams.height + "" );
-
-        viewHolder.record_another_view.requestLayout();
 
     }
 

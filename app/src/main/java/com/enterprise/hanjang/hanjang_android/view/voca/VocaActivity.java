@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.MainActivity;
@@ -37,6 +38,8 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
     public final static int[] VOCA_RECTANGLE_COLOR = {R.color.recordcolor, R.color.recordcolor2, R.color.recordcolor3, R.color.recordcolor4, R.color.recordcolor5, R.color.recordcolor6, R.color.recordcolor7};
     private ProgressBar progressBar;
     private FloatingActionButton fab;
+    private TextView total_page;
+    private TextView cur_page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,8 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
             }
         });
+        total_page = (TextView)findViewById(R.id.total_page);
+        cur_page = (TextView)findViewById(R.id.cur_page);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(6);
@@ -93,6 +98,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
         VocaPagerAdapter adapter = new VocaPagerAdapter(progressBar.getMax(), getLayoutInflater());
 
+        total_page.setText(String.valueOf(String.format("%02d",progressBar.getMax())));
         //ViewPager에 Adapter 설정
 
         pager.setAdapter(adapter);
@@ -109,6 +115,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onPageSelected(int position) {
                 progressBar.setProgress(position+1);
+                cur_page.setText(String.valueOf(String.format("%02d", position + 1)));
             }
 
             @Override
@@ -135,7 +142,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.navigation_item_today_word:
-                Toast.makeText(VocaActivity.this, item.getTitle(), Toast.LENGTH_LONG).show();
+                intent = new Intent(VocaActivity.this, MainActivity.class);
                 break;
 
             case R.id.navigation_item_voca:

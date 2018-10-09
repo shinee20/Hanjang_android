@@ -21,8 +21,8 @@ import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA
 public class RecordPagerAdapter extends PagerAdapter {
     private LayoutInflater inflater;
     private View record_view;
-    private ImageView change_view_layout_btn;
-    private ImageView back_btn;
+
+
     private Context mContext;
 
     public RecordPagerAdapter(Context mContext, LayoutInflater inflater) {
@@ -83,17 +83,6 @@ public class RecordPagerAdapter extends PagerAdapter {
         //ViewPager에 만들어 낸 View 추가
 
         container.addView(view);
-
-        change_view_layout_btn = (ImageView) view.findViewById(R.id.change_view_layout_btn);
-        back_btn = (ImageView)view.findViewById(R.id.back_btn);
-
-        change_view_layout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, RecordAnotherViewActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
 
 
         //Image가 세팅된 View를 리턴

@@ -17,6 +17,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.enterprise.hanjang.hanjang_android.R;
+import com.enterprise.hanjang.hanjang_android.model.record.RecordTextValue;
 
 import org.w3c.dom.Text;
 
@@ -46,15 +47,17 @@ public class RecordWriteNewActivity extends AppCompatActivity {
     private TextView oval_color_6;
     private TextView oval_color_7;
     private GradientDrawable gd;
-    private int seek1_status, seek2_status,seek3_status;
-    private static int seek1_pre_status, seek2_pre_status,seek3_pre_status;
+    private int seek1_status, seek2_status, seek3_status;
+    private static int seek1_pre_status = 0, seek2_pre_status = 0, seek3_pre_status= 0;
+
+    public static RecordTextValue recordTextValue;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_record);
 
-        linear_write_record = (LinearLayout)findViewById(R.id. linear_write_record);
+        linear_write_record = (LinearLayout) findViewById(R.id.linear_write_record);
 
         record_txt = (EditText) findViewById(R.id.record_txt);
 
@@ -70,32 +73,32 @@ public class RecordWriteNewActivity extends AppCompatActivity {
 
         text_size_adj = (ImageView) findViewById(R.id.text_size_adj);
 
-        oval_color_1 = (TextView)findViewById(R.id.oval_color_1);
+        oval_color_1 = (TextView) findViewById(R.id.oval_color_1);
         //동적으로 shape.xml의 색상 바꾸기
         gd = (GradientDrawable) oval_color_1.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#e8d8bf"));
 
-        oval_color_2 = (TextView)findViewById(R.id.oval_color_2);
+        oval_color_2 = (TextView) findViewById(R.id.oval_color_2);
         gd = (GradientDrawable) oval_color_2.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#bea36b"));
 
-        oval_color_3 = (TextView)findViewById(R.id.oval_color_3);
+        oval_color_3 = (TextView) findViewById(R.id.oval_color_3);
         gd = (GradientDrawable) oval_color_3.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#393f71"));
 
-        oval_color_4 = (TextView)findViewById(R.id.oval_color_4);
+        oval_color_4 = (TextView) findViewById(R.id.oval_color_4);
         gd = (GradientDrawable) oval_color_4.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#f8755a"));
 
-        oval_color_5 = (TextView)findViewById(R.id.oval_color_5);
+        oval_color_5 = (TextView) findViewById(R.id.oval_color_5);
         gd = (GradientDrawable) oval_color_5.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#f19c90"));
 
-        oval_color_6 = (TextView)findViewById(R.id.oval_color_6);
+        oval_color_6 = (TextView) findViewById(R.id.oval_color_6);
         gd = (GradientDrawable) oval_color_6.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#52bdbb"));
 
-        oval_color_7 = (TextView)findViewById(R.id.oval_color_7);
+        oval_color_7 = (TextView) findViewById(R.id.oval_color_7);
         gd = (GradientDrawable) oval_color_7.getBackground().getCurrent();
         gd.setColor(Color.parseColor("#dedede"));
 
@@ -169,9 +172,8 @@ public class RecordWriteNewActivity extends AppCompatActivity {
                     oval_color_6.setVisibility(View.VISIBLE);
                     oval_color_7.setVisibility(View.VISIBLE);
 
-                    flag =1;
-                }
-                else {
+                    flag = 1;
+                } else {
                     text_size_adj.setVisibility(View.VISIBLE);
                     letterspacing_adj.setVisibility(View.VISIBLE);
                     linespacing_adj.setVisibility(View.VISIBLE);
@@ -191,12 +193,14 @@ public class RecordWriteNewActivity extends AppCompatActivity {
         });
 
 
-
         seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
         seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
         seekBar3 = (SeekBar) findViewById(R.id.seekBar3);
 
-
+        recordTextValue = new RecordTextValue(record_txt.getTextSize(),record_txt.getLetterSpacing(),record_txt.getLineSpacingExtra());
+        Log.v("recordtextsize",recordTextValue.getRecord_txt_size() + "");
+        Log.v("recordletterspacing", recordTextValue.getRecord_txt_letter_spacing() + "");
+        Log.v("recordLineSpacing", recordTextValue.getRecord_txt_line_spacing() + "");
 
         text_size_adj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,8 +216,7 @@ public class RecordWriteNewActivity extends AppCompatActivity {
                     //seekbar 조절에 따라서 text size 변경
                     seekBar1.setOnSeekBarChangeListener(seekBarChangeListener);
                     flag = 1;
-                }
-                else {
+                } else {
                     letterspacing_adj.setVisibility(View.VISIBLE);
                     linespacing_adj.setVisibility(View.VISIBLE);
                     backgroundcolor_adj_white.setVisibility(View.VISIBLE);
@@ -245,8 +248,7 @@ public class RecordWriteNewActivity extends AppCompatActivity {
 
                     seekBar2.setOnSeekBarChangeListener(seekBarChangeListener);
                     flag = 1;
-                }
-                else {
+                } else {
                     text_size_adj.setVisibility(View.VISIBLE);
                     linespacing_adj.setVisibility(View.VISIBLE);
                     backgroundcolor_adj_white.setVisibility(View.VISIBLE);
@@ -280,8 +282,7 @@ public class RecordWriteNewActivity extends AppCompatActivity {
 
                     seekBar3.setOnSeekBarChangeListener(seekBarChangeListener);
                     flag = 1;
-                }
-                else {
+                } else {
                     letterspacing_adj.setVisibility(View.VISIBLE);
                     text_size_adj.setVisibility(View.VISIBLE);
                     backgroundcolor_adj_white.setVisibility(View.VISIBLE);
@@ -315,6 +316,7 @@ public class RecordWriteNewActivity extends AppCompatActivity {
 
 
     }
+
     private SeekBar.OnSeekBarChangeListener seekBarChangeListener
             = new SeekBar.OnSeekBarChangeListener() {
 
@@ -340,45 +342,53 @@ public class RecordWriteNewActivity extends AppCompatActivity {
         public void onStopTrackingTouch(SeekBar seekBar) {
         }
     };
+
     private void updateFontStatus(int seek_identi) {
-       switch (seek_identi){
-           case 1 :
-               seek1_status = seekBar1.getProgress();
-               if (seek1_pre_status < seek1_status)
-                   record_txt.setTextSize(TypedValue.COMPLEX_UNIT_PX,(record_txt.getTextSize() + seek1_status));
-//        record_txt.setLetterSpacing(record_txt.getTextSize() * seek1_status);
-               else
-                   record_txt.setTextSize(TypedValue.COMPLEX_UNIT_PX,(record_txt.getTextSize() - seek1_status));
-               seek1_pre_status = seek1_status;
-               break;
-           case 2:
-               seek2_status = seekBar2.getProgress();
-               if (seek2_pre_status < seek2_status) {
+        switch (seek_identi) {
+            case 1:
+                seek1_status = seekBar1.getProgress();
+                if (seek1_status == 0) {
+                    record_txt.setTextSize((float)47/ getResources().getDisplayMetrics().scaledDensity);
+                    Log.v("recordtextsize1",recordTextValue.getRecord_txt_size() + "");
+                }
+                else if (seek1_pre_status < seek1_status)
+                    record_txt.setTextSize(TypedValue.COMPLEX_UNIT_PX, (record_txt.getTextSize() + seek1_status));
+                else
+                    record_txt.setTextSize(TypedValue.COMPLEX_UNIT_PX, (record_txt.getTextSize() - seek1_status));
+                seek1_pre_status = seek1_status;
+                break;
+            case 2:
+                seek2_status = seekBar2.getProgress();
+                if (seek2_status == 0) {
+                    record_txt.setLetterSpacing(recordTextValue.getRecord_txt_letter_spacing());
+                    Log.v("recordletterspacing1", recordTextValue.getRecord_txt_letter_spacing() + "");
+                }
+                else if (seek2_pre_status < seek2_status) {
+                    record_txt.setLetterSpacing((float) ((record_txt.getLetterSpacing() + seek2_status) / 50));
+                } else {
+                    record_txt.setLetterSpacing((float) ((record_txt.getLetterSpacing() - seek2_status) / 50));
+                }
 
-                   Log.v("letter spacing upup", record_txt.getLetterSpacing() + "");
-                   record_txt.setLetterSpacing((float) (record_txt.getLetterSpacing() + seek2_status/20));
-               }
-               else {
-                   Log.v("letter spacing upup", record_txt.getLetterSpacing() + "");
-                   record_txt.setLetterSpacing((float) (record_txt.getLetterSpacing() - seek2_status/20));
-               }
+                seek2_pre_status = seek2_status;
+                break;
+            case 3:
+                seek3_status = seekBar3.getProgress();
+                if (seek3_status == 0) {
+                    record_txt.setLineSpacing(recordTextValue.getRecord_txt_line_spacing(), 1.0f);
+                    Log.v("recordlinespacing1", recordTextValue.getRecord_txt_line_spacing() + "");
+                }
+                else if (seek3_pre_status < seek3_status) {
+                    Log.v("seek3_status", seek3_status + "");
+                    Log.v("seek3_pre_status", seek3_pre_status + "");
+                    record_txt.setLineSpacing((float) (record_txt.getLineSpacingExtra() + seek3_status / 10), 1.0f);
+                } else {
+                    Log.v("line spacing down", record_txt.getLineSpacingExtra() + "");
+                    record_txt.setLineSpacing((float) (record_txt.getLineSpacingExtra() - seek3_status / 10), 1.0f);
+                }
+                seek3_pre_status = seek3_status;
+                break;
 
-               seek2_pre_status = seek2_status;
-               break;
-           case 3:
-               seek3_status = seekBar3.getProgress();
-               if (seek3_pre_status < seek3_status) {
-                   Log.v("line spacing upup", record_txt.getLineSpacingExtra() + "");
-                   record_txt.setLineSpacing((float) (record_txt.getLineSpacingExtra() + seek3_status /10), 1.0f);
-               }
-               else {
-                   Log.v("line spacing down", record_txt.getLineSpacingExtra() + "");
-                   record_txt.setLineSpacing((float)(record_txt.getLineSpacingExtra() - seek3_status /10), 1.0f);
-               }
-               seek3_pre_status = seek3_status;
-               break;
-
-       }
+        }
 
     }
 }

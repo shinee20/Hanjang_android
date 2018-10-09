@@ -3,6 +3,7 @@ package com.enterprise.hanjang.hanjang_android.view.setting;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -19,6 +20,11 @@ public class SettingActivity extends AppCompatActivity {
     private ImageView setting_back_btn;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
@@ -33,6 +39,14 @@ public class SettingActivity extends AppCompatActivity {
 
         SettingListViewAdapter listViewAdapter = new SettingListViewAdapter(this, R.layout.setting_list_view, settingListItem);
         setting_list_view.setAdapter(listViewAdapter);
+
+        setting_back_btn = (ImageView)findViewById(R.id.setting_back_btn);
+        setting_back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 }

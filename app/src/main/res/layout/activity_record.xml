@@ -13,6 +13,24 @@
             android:layout_height="match_parent"
             android:id="@+id/record_viewPager">
         </android.support.v4.view.ViewPager>
+        <ImageView
+            android:layout_marginTop="34.8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/group_6"
+            android:background="#00FFFFFF"
+            android:id="@+id/back_btn"
+            />
+        <ImageView
+            android:id="@+id/change_view_layout_btn"
+            android:layout_marginTop="34.8dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/group_9"
+            android:backgroundTint="#00ffffff"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/actionBtn1"
@@ -21,9 +39,22 @@
             android:layout_marginRight="12.3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_marginLeft="275dp"
             android:layout_alignParentBottom="true"
             app:backgroundTint="#ccffffff"
             android:src="@drawable/group_5" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_to_voca"
+            android:clickable="true"
+            android:layout_marginBottom="13.5dp"
+            android:layout_toRightOf="@id/actionBtn1"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:backgroundTint="#ccffffff"
+            android:src="@drawable/group_7" />
     </RelativeLayout>
 </LinearLayout>

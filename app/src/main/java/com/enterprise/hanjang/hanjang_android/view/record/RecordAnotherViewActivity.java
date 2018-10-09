@@ -1,14 +1,18 @@
 package com.enterprise.hanjang.hanjang_android.view.record;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 
 import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.model.record.RecordItem;
 import com.enterprise.hanjang.hanjang_android.view.record.adapter.RecordAnotherViewAdapter;
+import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,9 @@ import java.util.ArrayList;
 
 public class RecordAnotherViewActivity extends AppCompatActivity {
     ArrayList<RecordItem> recordItemList;
+    private FloatingActionButton actionBtn1;
+    private FloatingActionButton actionBtn2;
+    private Intent intent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +36,8 @@ public class RecordAnotherViewActivity extends AppCompatActivity {
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.record_recyclerview);
 
         mStgaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mStgaggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+
         mRecyclerView.setLayoutManager(mStgaggeredGridLayoutManager);
 
 
@@ -45,5 +54,25 @@ public class RecordAnotherViewActivity extends AppCompatActivity {
         RecordAnotherViewAdapter recordAnotherViewAdapter = new RecordAnotherViewAdapter(this, recordItemList);
 
         mRecyclerView.setAdapter(recordAnotherViewAdapter);
+
+//        actionBtn1 = (FloatingActionButton) findViewById(R.id.actionBtn1);
+//
+//        actionBtn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent = new Intent(RecordAnotherViewActivity.this, RecordWriteNewActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        actionBtn2 = (FloatingActionButton) findViewById(R.id.fab_to_voca);
+//
+//        actionBtn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent = new Intent(RecordAnotherViewActivity.this, VocaActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

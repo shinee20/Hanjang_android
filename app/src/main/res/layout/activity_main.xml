@@ -29,13 +29,14 @@
                 />
 
             <TextView
+                android:id="@+id/main_action_bar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="120dp"
                 android:layout_marginTop="26.3dp"
-                android:text="단어장"
+                tools:text="단어장"
                 android:textColor="#2f2f2f"
-                android:textSize="12.5sp"
+                android:textSize="15sp"
                 />
 
             <ImageView
@@ -43,8 +44,8 @@
                 android:layout_height="23dp"
                 android:id="@+id/voca_regist_btn"
                 android:background="@drawable/star"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="130dp"
                 />
         </LinearLayout>
 
@@ -111,19 +112,31 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13.5dp"
+            android:layout_marginLeft="275dp">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
+                android:id="@+id/fab_to_write"
+                android:clickable="true"
+                android:layout_marginRight="12.3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="13.5dp"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="15dp"
+                app:backgroundTint="#ccffffff"
+                android:src="@drawable/group_5" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_to_voca"
                 android:clickable="true"
-                android:src="@drawable/group_5"
-                app:backgroundTint="#ccffffff" />
+                android:layout_toRightOf="@id/fab_to_write"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                app:backgroundTint="#ccffffff"
+                android:src="@drawable/group_7" />
         </RelativeLayout>
     </LinearLayout>
 

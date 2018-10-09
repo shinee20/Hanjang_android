@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
@@ -22,20 +23,36 @@ import com.enterprise.hanjang.hanjang_android.view.record.RecordWriteNewActivity
 import com.enterprise.hanjang.hanjang_android.view.setting.SettingActivity;
 import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawerLayout;
     private Intent intent;
     private ImageView menu_btn;
     private NavigationView navigationView;
     private ImageView drawer_close_btn;
-    private FloatingActionButton fab;
+    private FloatingActionButton fab_to_write;
+    private FloatingActionButton fab_to_voca;
     private ImageView voca_regist_btn;
     private int flag = 0;
+    private Toast toast;
+    private TextView main_action_bar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        String getTime = sdf.format(date);
+
+        main_action_bar_title = (TextView)findViewById(R.id.main_action_bar_title);
+
+        main_action_bar_title.setText(getTime);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -76,24 +93,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (flag == 0) {
                     voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
                     flag = 1;
+                    toast = Toast.makeText(MainActivity.this, "단어장에 저장되었습니다", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+                    toast.show();
                 }
                 else {
                     voca_regist_btn.setBackgroundResource(R.drawable.star);
                     flag = 0;
+
+                    toast = Toast.makeText(MainActivity.this, "단어장에서 삭제되었습니다", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+                    toast.show();
                 }
             }
         });
 
         //글쓰기 floatingaction button
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab_to_write = (FloatingActionButton) findViewById(R.id.fab_to_write);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab_to_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RecordWriteNewActivity.class);
                 startActivity(intent);
             }
         });
+
+        //단어장 floatingaction button
+        fab_to_voca = (FloatingActionButton) findViewById(R.id.fab_to_voca);
+
+        fab_to_voca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, VocaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
@@ -104,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.navigation_item_today_word:
-                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_LONG).show();
+                intent = new Intent(MainActivity.this, MainActivity.class);
                 break;
 
             case R.id.navigation_item_voca:

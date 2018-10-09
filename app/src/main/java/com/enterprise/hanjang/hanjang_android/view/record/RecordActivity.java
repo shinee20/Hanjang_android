@@ -21,6 +21,14 @@ import com.enterprise.hanjang.hanjang_android.view.voca.adapter.VocaPagerAdapter
 public class RecordActivity extends AppCompatActivity {
     ViewPager pager;
     private FloatingActionButton actionBtn1;
+    private FloatingActionButton actionBtn2;
+    private ImageView back_btn;
+    private ImageView change_view_layout_btn;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,25 @@ public class RecordActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_record);
 
+        back_btn = (ImageView)findViewById(R.id.back_btn);
 
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        change_view_layout_btn = (ImageView)findViewById(R.id.change_view_layout_btn);
+
+
+        change_view_layout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecordActivity.this, RecordAnotherViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
         pager= (ViewPager)findViewById(R.id.record_viewPager);
 
@@ -62,6 +88,16 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RecordActivity.this, RecordWriteNewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        actionBtn2 = (FloatingActionButton) findViewById(R.id.fab_to_voca);
+
+        actionBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecordActivity.this, VocaActivity.class);
                 startActivity(intent);
             }
         });

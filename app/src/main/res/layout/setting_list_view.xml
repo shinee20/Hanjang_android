@@ -10,13 +10,14 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_gravity="center"
             android:id="@+id/setting_list_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:letterSpacing="-0.02"
             android:text="푸시(새로운 단어 알람)"
             android:textSize="20sp"
-            android:textColor="#2c2c2c"
+            android:fontFamily="@font/binggraii"
             android:layout_weight="1"/>
         <Switch
             android:id="@+id/setting_switch"
