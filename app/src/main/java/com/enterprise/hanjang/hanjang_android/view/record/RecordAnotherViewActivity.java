@@ -55,24 +55,24 @@ public class RecordAnotherViewActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(recordAnotherViewAdapter);
 
-//        actionBtn1 = (FloatingActionButton) findViewById(R.id.actionBtn1);
-//
-//        actionBtn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(RecordAnotherViewActivity.this, RecordWriteNewActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        actionBtn2 = (FloatingActionButton) findViewById(R.id.fab_to_voca);
-//
-//        actionBtn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(RecordAnotherViewActivity.this, VocaActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        actionBtn1 = (FloatingActionButton) findViewById(R.id.actionBtn1);
+
+        actionBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(RecordAnotherViewActivity.this, RecordWriteNewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        actionBtn2 = (FloatingActionButton) findViewById(R.id.fab_to_voca);
+
+        actionBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(RecordAnotherViewActivity.this, VocaActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -3,6 +3,7 @@ package com.enterprise.hanjang.hanjang_android.view.record.adapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -38,7 +39,7 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.record_another_view, viewGroup, false);
+                .inflate(R.layout.record_card_view, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
@@ -48,14 +49,11 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
         final RecordItem recordItem = recordItemArrayList.get(i);
         final int pos = i;
 
-
-        viewHolder.record_another_view.setBackgroundResource(VOCA_RECTANGLE_COLOR[pos]);
+        viewHolder.cardView.setBackgroundResource(VOCA_RECTANGLE_COLOR[pos]);
         viewHolder.record_another_date.setText(recordItem.getRecord_date());
         viewHolder.record_another_title.setText(recordItem.getRecord_title());
         viewHolder.record_another_mean.setText(recordItem.getRecord_mean());
         viewHolder.record_number.setText(pos + 1 + "");
-
-        viewHolder.record_another_mean.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
 
     }
@@ -70,11 +68,12 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
         public TextView record_another_mean;
         public TextView record_number;
         public TextView record_another_date;
-        public View record_another_view;
+//        public View record_another_view;
+        public CardView cardView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            record_another_view = (View) itemView.findViewById(R.id.record_another_view);
+            cardView = (CardView)itemView.findViewById(R.id.cardview);
             record_another_date = (TextView) itemView.findViewById(R.id.record_another_date);
             record_number = (TextView) itemView.findViewById(R.id.record_number);
             record_another_mean = (TextView) itemView.findViewById(R.id.record_another_mean);
