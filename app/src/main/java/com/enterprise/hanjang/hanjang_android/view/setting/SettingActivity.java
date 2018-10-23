@@ -1,13 +1,19 @@
 package com.enterprise.hanjang.hanjang_android.view.setting;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.enterprise.hanjang.hanjang_android.R;
+import com.enterprise.hanjang.hanjang_android.view.login.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -29,6 +35,11 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        TextView setting_id = (TextView)findViewById(R.id.setting_id);
+        setting_id.setText(user.getEmail().toString());
+//        setting_id.setText(user.getEmail());
         setting_list_view = (ListView) findViewById(R.id.setting_list_view);
 
         ArrayList<SettingListViewAdapter.ListItem> settingListItem = new ArrayList<>();
@@ -47,6 +58,18 @@ public class SettingActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        ImageView logout_btn = (ImageView)findViewById(R.id.logout_btn);
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

@@ -48,7 +48,7 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         final RecordItem recordItem = recordItemArrayList.get(i);
         final int pos = i;
-
+        Log.v("call record holder", "gggggg" + i);
         viewHolder.cardView.setBackgroundResource(VOCA_RECTANGLE_COLOR[pos]);
         viewHolder.record_another_date.setText(recordItem.getRecord_date());
         viewHolder.record_another_title.setText(recordItem.getRecord_title());

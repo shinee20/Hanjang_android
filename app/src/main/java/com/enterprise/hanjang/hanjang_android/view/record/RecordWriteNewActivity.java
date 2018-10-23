@@ -198,9 +198,6 @@ public class RecordWriteNewActivity extends AppCompatActivity {
         seekBar3 = (SeekBar) findViewById(R.id.seekBar3);
 
         recordTextValue = new RecordTextValue(record_txt.getTextSize(),record_txt.getLetterSpacing(),record_txt.getLineSpacingExtra());
-        Log.v("recordtextsize",recordTextValue.getRecord_txt_size() + "");
-        Log.v("recordletterspacing", recordTextValue.getRecord_txt_letter_spacing() + "");
-        Log.v("recordLineSpacing", recordTextValue.getRecord_txt_line_spacing() + "");
 
         text_size_adj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -350,7 +347,6 @@ public class RecordWriteNewActivity extends AppCompatActivity {
                 seek1_status = seekBar1.getProgress();
                 if (seek1_status == 0) {
                     record_txt.setTextSize((float)47/ getResources().getDisplayMetrics().scaledDensity);
-                    Log.v("recordtextsize1",recordTextValue.getRecord_txt_size() + "");
                 }
                 else if (seek1_pre_status < seek1_status)
                     record_txt.setTextSize(TypedValue.COMPLEX_UNIT_PX, (record_txt.getTextSize() + seek1_status));
@@ -362,7 +358,6 @@ public class RecordWriteNewActivity extends AppCompatActivity {
                 seek2_status = seekBar2.getProgress();
                 if (seek2_status == 0) {
                     record_txt.setLetterSpacing(recordTextValue.getRecord_txt_letter_spacing());
-                    Log.v("recordletterspacing1", recordTextValue.getRecord_txt_letter_spacing() + "");
                 }
                 else if (seek2_pre_status < seek2_status) {
                     record_txt.setLetterSpacing((float) ((record_txt.getLetterSpacing() + seek2_status) / 50));
@@ -376,14 +371,10 @@ public class RecordWriteNewActivity extends AppCompatActivity {
                 seek3_status = seekBar3.getProgress();
                 if (seek3_status == 0) {
                     record_txt.setLineSpacing(recordTextValue.getRecord_txt_line_spacing(), 1.0f);
-                    Log.v("recordlinespacing1", recordTextValue.getRecord_txt_line_spacing() + "");
                 }
                 else if (seek3_pre_status < seek3_status) {
-                    Log.v("seek3_status", seek3_status + "");
-                    Log.v("seek3_pre_status", seek3_pre_status + "");
                     record_txt.setLineSpacing((float) (record_txt.getLineSpacingExtra() + seek3_status / 10), 1.0f);
                 } else {
-                    Log.v("line spacing down", record_txt.getLineSpacingExtra() + "");
                     record_txt.setLineSpacing((float) (record_txt.getLineSpacingExtra() - seek3_status / 10), 1.0f);
                 }
                 seek3_pre_status = seek3_status;

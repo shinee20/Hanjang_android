@@ -37,7 +37,6 @@ public class RecordAnotherViewActivity extends AppCompatActivity {
 
         mStgaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mStgaggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
-
         mRecyclerView.setLayoutManager(mStgaggeredGridLayoutManager);
 
 

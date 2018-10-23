@@ -93,6 +93,16 @@
             android:textColor="#d8d8d8"
             android:text="2018. 06. 25"
             />
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:id="@+id/voca_regist_btn"
+            android:background="@drawable/star_fill"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@id/voca_order"
+
+            />
     </RelativeLayout>
 
 </LinearLayout>
