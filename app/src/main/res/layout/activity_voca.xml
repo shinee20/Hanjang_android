@@ -99,7 +99,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="560dp"
                 android:layout_marginLeft="35.5dp"
-                android:layout_marginTop="9.8dp">
+                android:layout_marginTop="9.8dp"
+                android:onClick="onClick"
+                >
 
             </android.support.v4.view.ViewPager>
 

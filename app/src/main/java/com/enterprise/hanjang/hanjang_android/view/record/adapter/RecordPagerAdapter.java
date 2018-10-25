@@ -12,7 +12,7 @@ import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordAnotherViewActivity;
 
-import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
+import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_BACKGROUND;
 
 /**
  * Created by shineeseo on 2018. 9. 13..
@@ -78,7 +78,7 @@ public class RecordPagerAdapter extends PagerAdapter {
         view= inflater.inflate(R.layout.record_viewpager_childview, null);
         record_view = (View) view.findViewById(R.id.record_view);
 
-        record_view.setBackgroundResource(VOCA_RECTANGLE_COLOR[position]);
+        record_view.setBackgroundResource(VOCA_RECTANGLE_BACKGROUND[position]);
 
         //ViewPager에 만들어 낸 View 추가
 

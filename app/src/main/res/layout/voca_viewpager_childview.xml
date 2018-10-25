@@ -17,24 +17,23 @@
             android:layout_marginLeft="19.3dp"
             android:layout_marginTop="24.5dp"
             android:id="@+id/voca_title"
-            android:layout_width="20dp"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:text="온새미로"
-            android:textSize="23.8sp"
+            android:textSize="30sp"
             android:textColor="#ffffff"
             />
         <TextView
             android:id="@+id/voca_mean_first"
             android:layout_marginTop="24.5dp"
-            android:layout_marginLeft="18.5dp"
+            android:layout_marginLeft="30dp"
             android:layout_toRightOf="@id/voca_title"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="17sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/binggraii"
-            android:lineSpacingExtra="2.8sp"
-            android:text="언
+            tools:text="언
 제
 나
 변
@@ -54,11 +53,10 @@
             android:layout_toRightOf="@id/voca_mean_first"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="17sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/binggraii"
-            android:lineSpacingExtra="2.8sp"
-            android:text="가
+            tools:text="가
 르
 거
 나
@@ -69,13 +67,56 @@
 고."
             />
         <TextView
-            android:id="@+id/voca_order"
+            android:id="@+id/voca_mean_third"
+            android:layout_marginTop="24.5dp"
+            android:layout_marginLeft="7.5dp"
             android:layout_toRightOf="@id/voca_mean_second"
-            android:layout_marginLeft="55.5dp"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/binggraii"
+            tools:text="가
+르
+거
+나
+쪼
+개
+지
+않
+고."
+
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/voca_mean_forth"
+            android:layout_marginTop="24.5dp"
+            android:layout_marginLeft="7.5dp"
+            android:layout_toRightOf="@id/voca_mean_third"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/binggraii"
+            tools:text="가
+르
+거
+나
+쪼
+개
+지
+않
+고."
+
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/voca_order"
+            android:layout_toRightOf="@id/voca_mean_forth"
+            android:layout_marginLeft="100dp"
             android:layout_marginTop="24.8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:textColor="#d8d8d8"
             android:letterSpacing="0.02"
             android:lineSpacingExtra="2.5sp"
@@ -85,24 +126,15 @@
         <TextView
             android:id="@+id/voca_date"
             android:layout_below="@id/voca_order"
-            android:layout_marginLeft="115.3dp"
-            android:layout_marginTop="315dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="450dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="8.5sp"
+            android:textSize="15sp"
             android:textColor="#d8d8d8"
             android:text="2018. 06. 25"
             />
-        <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:id="@+id/voca_regist_btn"
-            android:background="@drawable/star_fill"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="80dp"
-            android:layout_toRightOf="@id/voca_order"
 
-            />
     </RelativeLayout>
 
 </LinearLayout>

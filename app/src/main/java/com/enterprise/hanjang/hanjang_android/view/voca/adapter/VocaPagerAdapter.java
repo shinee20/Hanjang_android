@@ -2,6 +2,7 @@ package com.enterprise.hanjang.hanjang_android.view.voca.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
@@ -20,7 +21,7 @@ import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 
 import java.util.ArrayList;
 
-import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
+import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_BACKGROUND;
 
 
 /**
@@ -39,6 +40,9 @@ public class VocaPagerAdapter extends PagerAdapter {
     public TextView voca_title;
     public TextView voca_mean_first;
     public TextView voca_mean_second;
+    public TextView voca_mean_third;
+    public TextView voca_mean_forth;
+
     public TextView voca_date;
 
     public VocaPagerAdapter(Context mContext, ArrayList<RecordItem> recordItemList, LayoutInflater inflater) {
@@ -98,9 +102,12 @@ public class VocaPagerAdapter extends PagerAdapter {
         voca_title = (TextView)view.findViewById(R.id.voca_title);
         voca_mean_first = (TextView)view.findViewById(R.id.voca_mean_first);
         voca_mean_second = (TextView)view.findViewById(R.id.voca_mean_second);
+        voca_mean_third = (TextView)view.findViewById(R.id.voca_mean_third);
+        voca_mean_forth = (TextView)view.findViewById(R.id.voca_mean_forth);
+
         voca_date = (TextView)view.findViewById(R.id.voca_date);
 
-        voca_rectangle.setBackgroundResource(VOCA_RECTANGLE_COLOR[position]);
+        voca_rectangle.setBackgroundResource(VOCA_RECTANGLE_BACKGROUND[position]);
 
         voca_order = (TextView) view.findViewById(R.id.voca_order);
 
@@ -114,50 +121,49 @@ public class VocaPagerAdapter extends PagerAdapter {
         voca_title.setText(recordItemList.get(position).getRecord_title());
 
         String record_mean = recordItemList.get(position).getRecord_mean();
-        int mean_length = record_mean.length();
-        String a = record_mean.substring(0, mean_length / 2);
-        String b = record_mean.substring(mean_length / 2);
 
-        voca_mean_first.setText(a);
-        voca_mean_second.setText(b);
+        String[] mean_split = record_mean.split(" ");
+
+        String a = "";
+        String b = "";
+        String c = "";
+        String d = "";
+        for (int i = 0; i < mean_split.length; i++) {
+            if (i < 4) {
+                a = a.concat(mean_split[i] + " ");
+                Log.v("a", a);
+            }
+
+            else if (i >= 4 && i < 8)
+                b = b.concat(mean_split[i] + " ");
+
+            else if (i >= 8 && i < 12)
+                c = c.concat(mean_split[i] + " ");
+            else
+                d = d.concat(mean_split[i] + " ");
+
+        }
+        voca_mean_first.setText(a.replace(" ", "\u00A0"));
+        voca_mean_second.setText(b.replace(" ", "\u00A0"));
+        if (!c.equals("")) {
+            voca_mean_third.setVisibility(View.VISIBLE);
+            voca_mean_third.setText(c.replace(" ", "\u00A0"));
+        }
+        if (!d.equals("")) {
+            voca_mean_forth.setVisibility(View.VISIBLE);
+            voca_mean_forth.setText(d.replace(" ", "\u00A0"));
+        }
         voca_date.setText(recordItemList.get(position).getRecord_date());
 
         //ViewPager에 만들어 낸 View 추가
 
         container.addView(view);
 
-        //즐겨찾기 버튼
-//        voca_regist_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (flag == 0) {
-//                    voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
-//                    flag = 1;
-//                    toast = Toast.makeText(mContext, "단어장에 저장되었습니다", Toast.LENGTH_SHORT);
-//                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
-//                    toast.show();
-//
-//                }
-
-//                else {
-//                    voca_regist_btn.setBackgroundResource(R.drawable.star);
-//                    flag = 0;
-//
-//                    toast = Toast.makeText(mContext, "단어장에서 삭제되었습니다", Toast.LENGTH_SHORT);
-//                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
-//                    toast.show();
-//
-//                }
-//                recordItemList.clear();
-//            }
-//        });
-
         //Image가 세팅된 View를 리턴
 
         return view;
 
     }
-
 
     //화면에 보이지 않은 View는파쾨를 해서 메모리를 관리함.
 
@@ -188,7 +194,6 @@ public class VocaPagerAdapter extends PagerAdapter {
 
 
     //instantiateItem() 메소드에서 리턴된 Ojbect가 View가  맞는지 확인하는 메소드
-
     @Override
 
     public boolean isViewFromObject(View v, Object obj) {
@@ -205,5 +210,16 @@ public class VocaPagerAdapter extends PagerAdapter {
 //        return super.getPageWidth(position);
     }
 
+//    saveState() 상태에서 저장했던 Adapter와 page를 복구 한다.
+    @Override public void restoreState(Parcelable arg0, ClassLoader arg1) {}
+
+//    현재 UI 상태를 저장하기 위해 Adapter와 Page 관련 인스턴스 상태를 저장 합니다.
+    @Override public Parcelable saveState() { return null; }
+
+//    페이지 변경이 시작될때 호출 됩니다.
+    @Override public void startUpdate(View arg0) {}
+
+//    페이지 변경이 완료되었을때 호출 됩니다.
+    @Override public void finishUpdate(View arg0) {}
 
 }

@@ -19,6 +19,7 @@ import com.enterprise.hanjang.hanjang_android.model.record.RecordItem;
 
 import java.util.ArrayList;
 
+import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_BACKGROUND;
 import static com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity.VOCA_RECTANGLE_COLOR;
 
 /**

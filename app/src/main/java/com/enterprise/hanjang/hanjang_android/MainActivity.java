@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.enterprise.hanjang.hanjang_android.base.BaseModel;
+import com.enterprise.hanjang.hanjang_android.model.word.RegistWordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordResponse;
 import com.enterprise.hanjang.hanjang_android.network.ApplicationController;
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView today_word_mean1;
     private TextView today_word_mean2;
     private TextView today_word_mean3;
+    private String getTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(now);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        String getTime = sdf.format(date);
+        getTime = sdf.format(date);
 
         main_action_bar_title = (TextView) findViewById(R.id.main_action_bar_title);
 
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (flag == 0) {
                     voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
                     flag = 1;
+                    registToVoca();
                     toast = Toast.makeText(MainActivity.this, "단어장에 저장되었습니다", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
                     toast.show();
@@ -169,8 +173,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void Networking() {
-//        Call<BaseModel> requestDetail = networkService.registCourseBookmark(SharedPreference.Companion.getInstance().getPrefStringData("data"), courseDetailData.getCourse_idx());
-
         Call<WordResponse> requestDetail = networkService.getTodayWord();
 
         requestDetail.enqueue(new Callback<WordResponse>() {
@@ -186,29 +188,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     String s = todayWord.getWord_desc();
 
-                    int mean_length = s.length();
-                    String[] mean_split = s.split("");
+                    String[] mean_split = s.split(" ");
 
                     String a = "";
                     String b = "";
                     String c = "";
                     for (int i = 0; i < mean_split.length; i++) {
-                        Log.v("mean_split", mean_split[i]);
                         if (i < 4)
-                            a += mean_split[i];
+                            a = a.concat(mean_split[i] + " ");
 
-                        else if (i < 8)
-                            b += mean_split[i];
+                        else if (i >= 4 && i < 8)
+                            b = b.concat(mean_split[i] + " ");
 
                         else
-                            c += mean_split[i];
+                            c = c.concat(mean_split[i] + " ");
 
                     }
-                    today_word_mean1.setText(a);
-                    today_word_mean2.setText(b);
+                    today_word_mean1.setText(a.replace(" ", "\u00A0"));
+                    today_word_mean2.setText(b.replace(" ", "\u00A0"));
                     if (!c.equals("")) {
                         today_word_mean3.setVisibility(View.VISIBLE);
-                        today_word_mean3.setText(c);
+                        today_word_mean3.setText(c.replace(" ", "\u00A0"));
                     }
 
                 }
@@ -221,7 +221,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    public void registToVoca() {
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        RegistWordData registWordData = new RegistWordData(getTime, todayWord.getWord_idx(), user.getUid());
+        Call<BaseModel> requestDetail = networkService.registToMyVoca(user.getUid(),registWordData);
+        requestDetail.enqueue(new Callback<BaseModel>() {
+            @Override
+            public void onResponse(Call<BaseModel> call, Response<BaseModel> response) {
+                if (response.isSuccessful()) {
+                    Log.v("voca code", response.code() + "");
+                    Log.v("voca status", response.message() + "");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseModel> call, Throwable t) {
+                Log.i("err", t.getMessage());
+            }
+        });
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         item.setChecked(true);
