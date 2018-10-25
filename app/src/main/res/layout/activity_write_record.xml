@@ -16,12 +16,35 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/back_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="34.8dp"
+                    android:src="@drawable/icon_back_w" />
+                <TextView
+                    android:layout_marginTop="35.5dp"
+                    android:layout_marginLeft="310dp"
+                    android:id="@+id/complete_write_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:letterSpacing="-0.02"
+                    android:text="완료"
+                    android:textColor="#ffffff"/>
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/record_txt"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14.5dp"
-                android:layout_marginTop="64.5dp"
+                android:layout_marginTop="34.5dp"
                 android:background="@null"
                 android:fontFamily="@font/binggraeiibold"
                 android:hint="순 우리말로 오늘의 한장을 채워보세요.
@@ -124,10 +147,10 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16.8dp"
+                    android:layout_marginLeft="20.8dp"
                     android:layout_toRightOf="@id/oval_selected_color"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/group_15" />
+                    android:src="@drawable/icon_tool_1" />
 
                 <SeekBar
                     android:id="@+id/seekBar1"
@@ -146,10 +169,10 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16.8dp"
+                    android:layout_marginLeft="20.8dp"
                     android:layout_toRightOf="@id/text_size_adj"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/group_14" />
+                    android:src="@drawable/icon_tool_2" />
 
                 <SeekBar
                     android:id="@+id/seekBar2"
@@ -168,10 +191,10 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16.8dp"
+                    android:layout_marginLeft="20.8dp"
                     android:layout_toRightOf="@id/letterspacing_adj"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/group_12" />
+                    android:src="@drawable/icon_tool_3" />
 
                 <SeekBar
                     android:id="@+id/seekBar3"
@@ -190,20 +213,20 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16.8dp"
+                    android:layout_marginLeft="20.8dp"
                     android:layout_toRightOf="@id/linespacing_adj"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/group_11" />
+                    android:src="@drawable/icon_tool_4" />
 
                 <ImageView
                     android:id="@+id/backgroundcolor_adj_black"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="16.8dp"
+                    android:layout_marginLeft="20.8dp"
                     android:layout_toRightOf="@id/backgroundcolor_adj_white"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/group_3" />
+                    android:src="@drawable/icon_tool_5" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

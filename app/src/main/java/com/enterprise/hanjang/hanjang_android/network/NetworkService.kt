@@ -1,6 +1,7 @@
 package com.enterprise.hanjang.hanjang_android.network
 
 import com.enterprise.hanjang.hanjang_android.base.BaseModel
+import com.enterprise.hanjang.hanjang_android.model.voca.VocaResponse
 import com.enterprise.hanjang.hanjang_android.model.word.RegistWordData
 import com.enterprise.hanjang.hanjang_android.model.word.WordResponse
 import retrofit2.Call
@@ -29,7 +30,7 @@ interface NetworkService {
     @GET ("voca/{uid}")
     fun getVocaList(
             @Path("uid") uid:String
-    ) :Call<BaseModel>
+    ) :Call<VocaResponse>
 
 
 

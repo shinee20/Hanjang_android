@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.R;
 import com.enterprise.hanjang.hanjang_android.model.record.RecordTextValue;
@@ -49,6 +51,8 @@ public class RecordWriteNewActivity extends AppCompatActivity {
     private GradientDrawable gd;
     private int seek1_status, seek2_status, seek3_status;
     private static int seek1_pre_status = 0, seek2_pre_status = 0, seek3_pre_status= 0;
+    private TextView complete_write_record;
+    private ImageView back_btn;
 
     public static RecordTextValue recordTextValue;
 
@@ -72,6 +76,9 @@ public class RecordWriteNewActivity extends AppCompatActivity {
         backgroundcolor_adj_black = (ImageView) findViewById(R.id.backgroundcolor_adj_black);
 
         text_size_adj = (ImageView) findViewById(R.id.text_size_adj);
+
+        complete_write_record = (TextView) findViewById(R.id.complete_write_record);
+
 
         oval_color_1 = (TextView) findViewById(R.id.oval_color_1);
         //동적으로 shape.xml의 색상 바꾸기
@@ -312,6 +319,23 @@ public class RecordWriteNewActivity extends AppCompatActivity {
             }
         });
 
+        back_btn = (ImageView)findViewById(R.id.back_btn);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        complete_write_record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(RecordWriteNewActivity.this, "새로운 나의 한 장이 저장되었습니다.", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+                toast.show();
+            }
+        });
 
     }
 

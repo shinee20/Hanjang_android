@@ -24,6 +24,8 @@ import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordWriteNewActivity;
 import com.enterprise.hanjang.hanjang_android.view.setting.SettingActivity;
 import com.enterprise.hanjang.hanjang_android.view.voca.adapter.VocaPagerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -75,6 +77,11 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(VocaActivity.this);
         navigationView.getMenu().getItem(1).setChecked(true);
+        TextView nav_user_id = (TextView) nav_header_view.findViewById(R.id.nav_user_id);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.v("user email", user.getEmail() + "");
+        nav_user_id.setText(String.valueOf(user.getEmail()));
 
         drawer_close_btn = (ImageView) nav_header_view.findViewById(R.id.drawer_close_btn);
 
@@ -88,7 +95,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
         cur_page = (TextView)findViewById(R.id.cur_page);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(6);
+
 
         pager = (ViewPager) findViewById(R.id.voca_viewPager);
 
@@ -113,7 +120,9 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
         VocaPagerAdapter adapter = new VocaPagerAdapter(this, recordItemList,  getLayoutInflater());
 
-        total_page.setText(String.valueOf(String.format("%02d",progressBar.getMax())));
+        progressBar.setMax(recordItemList.size());
+
+        total_page.setText(String.valueOf(String.format("%02d",progressBar.getMax())) + "장");
         //ViewPager에 Adapter 설정
 
         pager.setAdapter(adapter);

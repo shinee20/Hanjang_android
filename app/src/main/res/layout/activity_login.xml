@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="37.8dp"
             android:layout_height="79.3dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
             android:src="@drawable/logo" />
 
         <ImageButton
@@ -24,7 +24,7 @@
             android:layout_width="218.5dp"
             android:layout_height="36.3dp"
             android:layout_gravity="center"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="380dp"
             android:src="@drawable/facebook_login_btn" />
 
         <com.facebook.login.widget.LoginButton
@@ -44,18 +44,5 @@
             android:onClick="onClick"
             android:src="@drawable/google_login_btn" />
 
-        <TextView
-            android:id="@+id/go_without_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="29.3dp"
-            android:letterSpacing="0.023"
-            android:text="로그인 없이 사용하기"
-            android:textColor="#c4c4c4"
-            android:textSize="10.5sp"
-            android:textStyle="bold"
-
-            />
     </LinearLayout>
 </LinearLayout>

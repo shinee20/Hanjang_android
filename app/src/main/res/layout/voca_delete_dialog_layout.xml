@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="210dp"
+    android:background="@drawable/button_border"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/delete_voca_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:text="'온새미로'"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="단어장에서 삭제하시겠습니까?" />
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="40dp"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_bookmark_ok"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/button_layout"
+            android:text="확인"
+            android:fontFamily="@font/binggraii"
+            android:textColor="#ff6e2c"
+            style="?android:attr/borderlessButtonStyle"/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="#eeeeee" />
+        <Button
+            android:id="@+id/btn_bookmark_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/button_layout"
+            android:text="취소"
+            android:fontFamily="@font/binggraii"
+            android:textColor="#ff6e2c"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+</LinearLayout>

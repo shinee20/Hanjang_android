@@ -1,5 +1,7 @@
 package com.enterprise.hanjang.hanjang_android.view.voca.adapter;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Parcelable;
@@ -10,6 +12,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,6 +158,47 @@ public class VocaPagerAdapter extends PagerAdapter {
         }
         voca_date.setText(recordItemList.get(position).getRecord_date());
 
+        view.setTag(position);
+
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                int position=(Integer) view.getTag();
+
+                final Dialog delete_voca_dialog = new Dialog(mContext);
+                delete_voca_dialog.setContentView(R.layout.voca_delete_dialog_layout);
+                delete_voca_dialog.setTitle("Delete Dialog");
+
+                TextView delete_voca_title = (TextView) delete_voca_dialog.findViewById(R.id.delete_voca_title);
+                delete_voca_title.setText("'" + recordItemList.get(position).getRecord_title() + "'");
+
+                Button btn_bookmark_ok = (Button) delete_voca_dialog.findViewById(R.id.btn_bookmark_ok);
+
+                btn_bookmark_ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast toast = Toast.makeText(mContext, "단어장에서 삭제되었습니다.", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+                        toast.show();
+                        delete_voca_dialog.dismiss();
+                    }
+                });
+                Button btn_bookmark_cancel = (Button) delete_voca_dialog.findViewById(R.id.btn_bookmark_cancel);
+
+                btn_bookmark_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast toast = Toast.makeText(mContext, "삭제 동작을 취소합니다.", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+                        toast.show();
+                        delete_voca_dialog.dismiss();
+                    }
+                });
+
+                delete_voca_dialog.show();
+                return false;
+            }
+        });
         //ViewPager에 만들어 낸 View 추가
 
         container.addView(view);

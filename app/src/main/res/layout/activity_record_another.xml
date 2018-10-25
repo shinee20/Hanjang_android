@@ -10,6 +10,23 @@
         android:id="@+id/record_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_marginTop="34.8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_back_b"
+        android:id="@+id/back_btn"
+        />
+    <ImageView
+        android:id="@+id/change_view_layout_btn"
+        android:layout_marginTop="34.8dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_view_1_b"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/actionBtn1"

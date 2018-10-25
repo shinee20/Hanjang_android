@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/paper_07"
+        android:background="@drawable/main_bg_1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -21,11 +21,11 @@
 
             <ImageView
                 android:id="@+id/menu_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
                 android:layout_marginLeft="14.3dp"
-                android:layout_marginTop="31dp"
-                android:src="@drawable/nav_btn"
+                android:layout_marginTop="27dp"
+                android:src="@drawable/icon_gnb"
                 />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:id="@+id/voca_regist_btn"
                 android:background="@drawable/star"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="130dp"
+                android:layout_marginLeft="120dp"
                 />
         </LinearLayout>
         <LinearLayout

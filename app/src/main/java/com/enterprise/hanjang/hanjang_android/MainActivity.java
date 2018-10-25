@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.base.BaseModel;
+import com.enterprise.hanjang.hanjang_android.model.voca.VocaResponse;
 import com.enterprise.hanjang.hanjang_android.model.word.RegistWordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordResponse;
@@ -232,11 +233,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (response.isSuccessful()) {
                     Log.v("voca code", response.code() + "");
                     Log.v("voca status", response.message() + "");
+                    getVocaIdx();
                 }
             }
 
             @Override
             public void onFailure(Call<BaseModel> call, Throwable t) {
+                Log.i("err", t.getMessage());
+            }
+        });
+    }
+
+    public void getVocaIdx() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Call<VocaResponse> requestDetail = networkService.getVocaList(user.getUid());
+        requestDetail.enqueue(new Callback<VocaResponse>() {
+            @Override
+            public void onResponse(Call<VocaResponse> call, Response<VocaResponse> response) {
+                if (response.isSuccessful()) {
+                    Log.v("voca list code", response.code() + "");
+                    Log.v("voca list status", response.message() + "");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VocaResponse> call, Throwable t) {
                 Log.i("err", t.getMessage());
             }
         });

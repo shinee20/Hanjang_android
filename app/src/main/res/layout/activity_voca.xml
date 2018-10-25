@@ -21,16 +21,16 @@
 
             <ImageView
                 android:id="@+id/menu_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
                 android:layout_marginLeft="14.3dp"
-                android:layout_marginTop="31dp"
-                android:src="@drawable/nav_btn" />
+                android:layout_marginTop="29dp"
+                android:src="@drawable/icon_gnb" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="140dp"
                 android:layout_marginTop="26.3dp"
                 android:text="단어장"
                 android:textColor="#2f2f2f"
@@ -84,7 +84,7 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
-            android:layout_width="330dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="36.5dp"
             android:progressTint="#4a4a4a"
@@ -100,7 +100,6 @@
                 android:layout_height="560dp"
                 android:layout_marginLeft="35.5dp"
                 android:layout_marginTop="9.8dp"
-                android:onClick="onClick"
                 >
 
             </android.support.v4.view.ViewPager>

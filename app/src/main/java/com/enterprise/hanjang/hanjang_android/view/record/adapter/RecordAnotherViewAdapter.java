@@ -54,7 +54,7 @@ public class RecordAnotherViewAdapter extends RecyclerView.Adapter<RecordAnother
         viewHolder.record_another_date.setText(recordItem.getRecord_date());
         viewHolder.record_another_title.setText(recordItem.getRecord_title());
         viewHolder.record_another_mean.setText(recordItem.getRecord_mean());
-        viewHolder.record_number.setText(pos + 1 + "");
+        viewHolder.record_number.setText(String.valueOf(String.format("%02d",pos + 1)));
 
 
     }

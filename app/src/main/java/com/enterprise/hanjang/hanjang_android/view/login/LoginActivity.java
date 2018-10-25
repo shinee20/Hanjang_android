@@ -56,8 +56,7 @@ public class LoginActivity extends BaseActivity {
 
     private ImageButton facebook_login_btn;
     private ImageButton google_login_btn;
-    private TextView go_without_login;
-    private  LoginButton loginButton;
+    private LoginButton loginButton;
     private static final int RC_SIGN_IN = 9001;
 
     // [START declare_auth]
@@ -76,18 +75,6 @@ public class LoginActivity extends BaseActivity {
         facebook_login_btn = (ImageButton) findViewById(R.id.facebook_login_btn);
 
         google_login_btn = (ImageButton) findViewById(R.id.google_login_btn);
-
-        go_without_login = (TextView) findViewById(R.id.go_without_login);
-
-        go_without_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
 
         // [START config_signin]
         // Configure Google Sign In
