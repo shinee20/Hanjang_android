@@ -110,7 +110,9 @@ public class VocaPagerAdapter extends PagerAdapter {
 
         voca_date = (TextView)view.findViewById(R.id.voca_date);
 
-        voca_rectangle.setBackgroundResource(VOCA_RECTANGLE_BACKGROUND[position]);
+        if (position < 7)
+            voca_rectangle.setBackgroundResource(VOCA_RECTANGLE_BACKGROUND[position]);
+
 
         voca_order = (TextView) view.findViewById(R.id.voca_order);
 

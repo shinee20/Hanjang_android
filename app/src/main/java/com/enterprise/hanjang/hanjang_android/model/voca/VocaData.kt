@@ -1,6 +1,7 @@
 package com.enterprise.hanjang.hanjang_android.model.voca
 
 import com.enterprise.hanjang.hanjang_android.model.word.WordData
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by shineeseo on 2018. 10. 25..

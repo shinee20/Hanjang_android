@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.enterprise.hanjang.hanjang_android.base.BaseModel;
+import com.enterprise.hanjang.hanjang_android.model.record.RecordItem;
+import com.enterprise.hanjang.hanjang_android.model.voca.VocaData;
 import com.enterprise.hanjang.hanjang_android.model.voca.VocaResponse;
 import com.enterprise.hanjang.hanjang_android.model.word.RegistWordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordData;
@@ -37,7 +39,10 @@ import com.hello.seoulnuri.utils.SharedPreference;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView today_word_mean2;
     private TextView today_word_mean3;
     private String getTime;
+    private ArrayList<VocaData> vocaDataList;
+    private ArrayList<RecordItem> voca_item_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreference.Companion.getInstance();
 
         Networking();
-
+        getVocaIdx();
         today_word_title = (TextView) findViewById(R.id.today_word_title);
         today_word_mean1 = (TextView) findViewById(R.id.today_word_mean1);
         today_word_mean2 = (TextView) findViewById(R.id.today_word_mean2);
@@ -130,16 +137,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         voca_regist_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (flag == 0) {
+                if (flag == 1) {
                     voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
-                    flag = 1;
+                    flag = 0;
                     registToVoca();
                     toast = Toast.makeText(MainActivity.this, "단어장에 저장되었습니다", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
                     toast.show();
                 } else {
                     voca_regist_btn.setBackgroundResource(R.drawable.star);
-                    flag = 0;
+                    flag = 1;
 
                     toast = Toast.makeText(MainActivity.this, "단어장에서 삭제되었습니다", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
@@ -166,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, VocaActivity.class);
+                intent.putExtra("vocaDataList", voca_item_list);
                 startActivity(intent);
             }
         });
@@ -226,14 +234,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         RegistWordData registWordData = new RegistWordData(getTime, todayWord.getWord_idx(), user.getUid());
-        Call<BaseModel> requestDetail = networkService.registToMyVoca(user.getUid(),registWordData);
+        Call<BaseModel> requestDetail = networkService.registToMyVoca(user.getUid(), registWordData);
         requestDetail.enqueue(new Callback<BaseModel>() {
             @Override
             public void onResponse(Call<BaseModel> call, Response<BaseModel> response) {
                 if (response.isSuccessful()) {
                     Log.v("voca code", response.code() + "");
                     Log.v("voca status", response.message() + "");
-                    getVocaIdx();
+
                 }
             }
 
@@ -255,6 +263,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (response.isSuccessful()) {
                     Log.v("voca list code", response.code() + "");
                     Log.v("voca list status", response.message() + "");
+
+                    vocaDataList = response.body().getData();
+
+                    ArrayList<WordData> wordDataList = new ArrayList<>();
+
+                    //voca activity에 전달할 데이터
+                    voca_item_list = new ArrayList<>();
+
+                    Log.v("voca data list", vocaDataList.toString());
+
+
+                    for (int i = 0; i < vocaDataList.size(); i++) {
+                        if (vocaDataList.get(i).getWord().getWord_idx() == todayWord.getWord_idx()) {
+                            voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
+                            flag = 1;
+                        }
+                        wordDataList.add(vocaDataList.get(i).getWord());
+                    }
+
+                    HashSet<WordData> hs = new HashSet<>(wordDataList);
+                    Log.v("voca item list", hs.toString());
+
+                    int k = 0;
+
+                    Iterator it = hs.iterator();
+                    while(it.hasNext()){
+                        if (vocaDataList.get(k).getWord() == it.next())
+                            voca_item_list.add(new RecordItem(vocaDataList.get(k).getWord().getWord_title(), vocaDataList.get(k).getWord().getWord_desc(), vocaDataList.get(k).getVoca_date()));
+                        k++;
+                    }
+
+                    Log.v("voca item list", voca_item_list.toString());
+
                 }
             }
 
@@ -264,6 +305,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         item.setChecked(true);

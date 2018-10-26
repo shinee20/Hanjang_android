@@ -1,10 +1,14 @@
 package com.enterprise.hanjang.hanjang_android.model.record;
 
+import com.enterprise.hanjang.hanjang_android.model.word.WordData;
+
+import java.io.Serializable;
+
 /**
  * Created by shineeseo on 2018. 10. 2..
  */
 
-public class RecordItem {
+public class RecordItem implements Serializable{
     public String record_title;
     public String record_mean;
     public String record_date;
@@ -14,6 +18,7 @@ public class RecordItem {
         this.record_mean = record_mean;
         this.record_date = record_date;
     }
+
 
     public String getRecord_title() {
         return record_title;
@@ -39,4 +44,12 @@ public class RecordItem {
         this.record_date = record_date;
     }
 
+    @Override
+    public String toString() {
+        return "RecordItem{" +
+                "record_title='" + record_title + '\'' +
+                ", record_mean='" + record_mean + '\'' +
+                ", record_date='" + record_date + '\'' +
+                '}';
+    }
 }
