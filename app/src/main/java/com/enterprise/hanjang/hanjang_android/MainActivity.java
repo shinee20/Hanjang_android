@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Call<VocaResponse> requestDetail = networkService.getVocaList(user.getUid());
+        Log.v("voca list code", "vocaresponse~!!!");
         requestDetail.enqueue(new Callback<VocaResponse>() {
             @Override
             public void onResponse(Call<VocaResponse> call, Response<VocaResponse> response) {
