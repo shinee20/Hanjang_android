@@ -57,6 +57,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
     private TextView total_page;
     private TextView cur_page;
     private NetworkService networkService;
+    private ArrayList<RecordItem> vocaDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,9 +121,7 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
         //CustomAdapter에게 LayoutInflater 객체 전달
         Intent intent = getIntent();
 
-        ArrayList<RecordItem> vocaDataList = (ArrayList<RecordItem>)intent.getSerializableExtra("vocaDataList");
-
-        Log.v("voca data list length", vocaDataList.size() + "");
+        vocaDataList = (ArrayList<RecordItem>)intent.getSerializableExtra("vocaDataList");
 
         VocaPagerAdapter adapter = new VocaPagerAdapter(VocaActivity.this, vocaDataList,  getLayoutInflater());
 
@@ -178,6 +177,8 @@ public class VocaActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.navigation_item_voca:
                 intent = new Intent(VocaActivity.this, VocaActivity.class);
+                if (vocaDataList != null)
+                    intent.putExtra("vocaDataList", vocaDataList);
                 break;
 
             case R.id.navigation_item_record:

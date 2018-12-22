@@ -16,8 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/menu_btn"
@@ -87,8 +87,8 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="36.5dp"
-            android:progressTint="#4a4a4a"
-            android:max="13" />
+            android:max="13"
+            android:progressTint="#4a4a4a" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -99,8 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="560dp"
                 android:layout_marginLeft="35.5dp"
-                android:layout_marginTop="9.8dp"
-                >
+                android:layout_marginTop="9.8dp">
 
             </android.support.v4.view.ViewPager>
 
@@ -116,5 +115,6 @@
                 app:backgroundTint="#ccffffff" />
         </RelativeLayout>
     </LinearLayout>
-    <include layout="@layout/activity_navigation_drawer" />
+
+    <!--<include layout="@layout/activity_navigation_drawer" />-->
 </android.support.v4.widget.DrawerLayout>

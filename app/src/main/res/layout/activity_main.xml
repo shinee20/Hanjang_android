@@ -13,11 +13,12 @@
         android:background="@drawable/main_bg_1"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/menu_btn"
@@ -25,8 +26,7 @@
                 android:layout_height="25dp"
                 android:layout_marginLeft="14.3dp"
                 android:layout_marginTop="27dp"
-                android:src="@drawable/icon_gnb"
-                />
+                android:src="@drawable/icon_gnb" />
 
             <TextView
                 android:id="@+id/main_action_bar_title"
@@ -34,20 +34,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="26.3dp"
-                tools:text="단어장"
                 android:textColor="#2f2f2f"
                 android:textSize="15sp"
-                />
+                tools:text="단어장" />
 
             <ImageView
+                android:id="@+id/voca_regist_btn"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
-                android:id="@+id/voca_regist_btn"
-                android:background="@drawable/star"
-                android:layout_marginTop="25dp"
                 android:layout_marginLeft="120dp"
-                />
+                android:layout_marginTop="25dp"
+                android:background="@drawable/star" />
         </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13.5dp">
         <LinearLayout
             android:id="@+id/word_linear_layout"
             android:layout_width="match_parent"
@@ -60,9 +62,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="43.8dp"
                 android:layout_marginTop="87.5dp"
-                tools:text="온새미로"
                 android:textColor="#000000"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                tools:text="온새미로" />
 
             <TextView
                 android:id="@+id/today_word_mean1"
@@ -71,6 +73,8 @@
                 android:layout_marginLeft="48.7dp"
                 android:layout_marginTop="86.8dp"
                 android:fontFamily="@font/binggraii"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 tools:text="언
 제
 나
@@ -86,9 +90,7 @@
 
 그
 대
-로"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+로" />
 
             <TextView
                 android:id="@+id/today_word_mean2"
@@ -97,6 +99,8 @@
                 android:layout_marginLeft="14.7dp"
                 android:layout_marginTop="86.8dp"
                 android:fontFamily="@font/binggraii"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 tools:text="가
 르
 거
@@ -107,9 +111,7 @@
 지
 
 않
-고"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+고" />
 
             <TextView
                 android:id="@+id/today_word_mean3"
@@ -118,6 +120,9 @@
                 android:layout_marginLeft="14.7dp"
                 android:layout_marginTop="86.8dp"
                 android:fontFamily="@font/binggraii"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:visibility="invisible"
                 tools:text="가
 르
 거
@@ -128,42 +133,34 @@
 지
 
 않
-고"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:visibility="invisible"/>
+고" />
         </LinearLayout>
-        <RelativeLayout
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_to_write"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="13.5dp"
-            android:layout_marginLeft="275dp">
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="275dp"
+            android:layout_marginRight="12.3dp"
+            android:clickable="true"
+            android:src="@drawable/group_5"
+            app:backgroundTint="#ccffffff" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_to_write"
-                android:clickable="true"
-                android:layout_marginRight="12.3dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                app:backgroundTint="#ccffffff"
-                android:src="@drawable/group_5" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_to_voca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/fab_to_write"
+            android:clickable="true"
+            android:src="@drawable/group_7"
+            app:backgroundTint="#ccffffff" />
+    </RelativeLayout>
+</LinearLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_to_voca"
-                android:clickable="true"
-                android:layout_toRightOf="@id/fab_to_write"
-                android:layout_marginRight="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                app:backgroundTint="#ccffffff"
-                android:src="@drawable/group_7" />
-        </RelativeLayout>
-    </LinearLayout>
+<include layout="@layout/activity_navigation_drawer" />
 
-    <include layout="@layout/activity_navigation_drawer" />
-
-</android.support.v4.widget.DrawerLayout>
+    </android.support.v4.widget.DrawerLayout>
 

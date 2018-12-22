@@ -29,6 +29,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-auth:16.0.2'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
 
     // Facebook Android SDK (only required for Facebook Login)
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
@@ -41,6 +42,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation "com.google.code.gson:gson:2.3.1"
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.2.71'
 }
 
 apply plugin: 'com.google.gms.google-services'

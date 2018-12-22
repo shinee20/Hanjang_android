@@ -27,6 +27,7 @@ import com.enterprise.hanjang.hanjang_android.model.word.WordData;
 import com.enterprise.hanjang.hanjang_android.model.word.WordResponse;
 import com.enterprise.hanjang.hanjang_android.network.ApplicationController;
 import com.enterprise.hanjang.hanjang_android.network.NetworkService;
+import com.enterprise.hanjang.hanjang_android.view.push.MyFirebaseInstanceIDService;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordActivity;
 import com.enterprise.hanjang.hanjang_android.view.record.RecordWriteNewActivity;
 import com.enterprise.hanjang.hanjang_android.view.setting.SettingActivity;
@@ -34,6 +35,7 @@ import com.enterprise.hanjang.hanjang_android.view.voca.VocaActivity;
 import com.google.android.gms.flags.impl.DataUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.hello.seoulnuri.utils.SharedPreference;
 
 import org.w3c.dom.Text;
@@ -75,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String refreshToken = FirebaseInstanceId.getInstance().getToken();
+
+        Log.v("refreshtoken", refreshToken);
 
         networkService = ApplicationController.Companion.getInstance().getNetworkService();
         SharedPreference.Companion.getInstance();
@@ -137,16 +143,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         voca_regist_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (flag == 1) {
+                if (flag == 0) {
                     voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
-                    flag = 0;
+                    flag = 1;
                     registToVoca();
                     toast = Toast.makeText(MainActivity.this, "단어장에 저장되었습니다", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
                     toast.show();
                 } else {
                     voca_regist_btn.setBackgroundResource(R.drawable.star);
-                    flag = 1;
+                    flag = 0;
 
                     toast = Toast.makeText(MainActivity.this, "단어장에서 삭제되었습니다", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
@@ -173,7 +179,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, VocaActivity.class);
-                intent.putExtra("vocaDataList", voca_item_list);
+                if (voca_item_list != null)
+                    intent.putExtra("vocaDataList", voca_item_list);
                 startActivity(intent);
             }
         });
@@ -241,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (response.isSuccessful()) {
                     Log.v("voca code", response.code() + "");
                     Log.v("voca status", response.message() + "");
-
+                    getVocaIdx();
                 }
             }
 
@@ -273,7 +280,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Log.v("voca data list", vocaDataList.toString());
 
-
                     for (int i = 0; i < vocaDataList.size(); i++) {
                         if (vocaDataList.get(i).getWord().getWord_idx() == todayWord.getWord_idx()) {
                             voca_regist_btn.setBackgroundResource(R.drawable.star_fill);
@@ -285,13 +291,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     HashSet<WordData> hs = new HashSet<>(wordDataList);
                     Log.v("voca item list", hs.toString());
 
-                    int k = 0;
-
                     Iterator it = hs.iterator();
                     while(it.hasNext()){
-                        if (vocaDataList.get(k).getWord() == it.next())
-                            voca_item_list.add(new RecordItem(vocaDataList.get(k).getWord().getWord_title(), vocaDataList.get(k).getWord().getWord_desc(), vocaDataList.get(k).getVoca_date()));
-                        k++;
+                        WordData wordData = (WordData) it.next();
+                        for (int k = 0; k < vocaDataList.size(); k++) {
+                            if (vocaDataList.get(k).getWord() == wordData) {
+                                voca_item_list.add(new RecordItem(vocaDataList.get(k).getWord().getWord_title(), vocaDataList.get(k).getWord().getWord_desc(), vocaDataList.get(k).getVoca_date()));
+                            }
+                        }
                     }
 
                     Log.v("voca item list", voca_item_list.toString());
@@ -318,6 +325,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.navigation_item_voca:
                 intent = new Intent(MainActivity.this, VocaActivity.class);
+                if (voca_item_list != null)
+                    intent.putExtra("vocaDataList", voca_item_list);
                 break;
 
             case R.id.navigation_item_record:

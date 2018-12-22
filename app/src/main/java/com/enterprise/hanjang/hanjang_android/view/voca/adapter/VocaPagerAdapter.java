@@ -190,9 +190,6 @@ public class VocaPagerAdapter extends PagerAdapter {
                 btn_bookmark_cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast toast = Toast.makeText(mContext, "삭제 동작을 취소합니다.", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
-                        toast.show();
                         delete_voca_dialog.dismiss();
                     }
                 });
