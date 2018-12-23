@@ -17,7 +17,7 @@ interface NetworkService {
     //01. 오늘의 단어 보여주기
     @GET("word")
     fun getTodayWord(
-    ):Call<WordResponse>
+    ): Call<WordResponse>
 
     //02. 단어 즐겨찾기 등록
     @POST("voca/{uid}")
